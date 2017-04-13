@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/location"
+        android:orderInCategory="100"
+        android:title="Filter"
+        android:icon="@drawable/location_icon"
+        app:showAsAction="always"
+        android:visible="false"/>
+    <item
+        android:id="@+id/search"
+        android:orderInCategory="100"
+        android:title="Filter"
+        android:icon="@android:drawable/ic_menu_search"
+        app:showAsAction="always"
+        android:visible="false"/>
+    <item
+        android:id="@+id/filter"
+        android:orderInCategory="100"
+        android:title="Filter"
+        android:icon="@drawable/filter"
+        app:showAsAction="always"
+        android:visible="false"/>
+    <item
+        android:id="@+id/notification_menu"
+        android:orderInCategory="100"
+        android:title="Filter"
+        android:icon="@drawable/notification_white"
+        app:showAsAction="always" />
+</menu>

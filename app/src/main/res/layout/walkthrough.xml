@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <com.wma.ozfoodhunter.fonts.BT_Regular
+        android:id="@+id/skip"
+        android:textColor="@color/white"
+        android:background="@color/button"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/indicator"
+        android:layout_width="wrap_content"
+        android:text="SKIP"
+        android:visibility="gone"
+        android:layout_height="30dp" />
+
+    <me.relex.circleindicator.CircleIndicator
+        android:id="@+id/indicator"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true" />
+
+
+</RelativeLayout>

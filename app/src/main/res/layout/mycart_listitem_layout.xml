@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:layout_margin="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.wma.ozfoodhunter.fonts.TextView_Light
+            android:id="@+id/itemname"
+            android:text="Potato Fry"
+            android:layout_weight="1"
+            android:textSize="14sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+            <com.wma.ozfoodhunter.fonts.TextView_Light
+                android:layout_weight=".1"
+                android:id="@+id/itemqty_sub"
+                android:drawableRight="@drawable/minus_icon_cart"
+                android:textColor="@color/button"
+                android:textSize="14sp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"/>
+             <com.wma.ozfoodhunter.fonts.TextView_Light
+                 android:layout_weight=".1"
+                android:id="@+id/itemqty"
+                android:text="x 2"
+                android:textColor="@color/button"
+                android:textSize="14sp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+            <com.wma.ozfoodhunter.fonts.TextView_Light
+                android:layout_weight=".1"
+                android:id="@+id/itemqty_add"
+                android:drawableLeft="@drawable/plus_icon_cart"
+                android:textColor="@color/button"
+                android:textSize="14sp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"/>
+
+        </LinearLayout>
+        <com.wma.ozfoodhunter.fonts.TextView_Light
+            android:id="@+id/itemprice"
+            android:text="$299"
+            android:layout_weight=".7"
+            android:layout_gravity="right"
+            android:gravity="right|center"
+            android:textSize="14sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <com.wma.ozfoodhunter.Utils.TouchImageView
+            android:id="@+id/delete"
+            android:layout_weight=".3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/delete_icon"
+            android:visibility="invisible"/>
+    </LinearLayout>
+
+</LinearLayout>

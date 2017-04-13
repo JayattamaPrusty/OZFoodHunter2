@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants"
+    android:background="@drawable/background_banner">
+
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/lyt_parent"
+            android:layout_margin="10dp"
+            android:weightSum="1">
+            <LinearLayout
+                android:layout_weight="0.25"
+                android:layout_width="0dp"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/img"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/food_pic1"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp" />
+
+            </LinearLayout>
+            <RelativeLayout
+                android:layout_weight="0.75"
+                android:layout_marginLeft="5dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+
+                <com.wma.ozfoodhunter.fonts.TextView_Regular
+                    android:paddingTop="8dp"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:id="@+id/restaurant_name"
+                    android:text="Burger Edge- Myer Center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <com.wma.ozfoodhunter.fonts.TextView_Regular
+                    android:layout_marginTop="8dp"
+                    android:textSize="15sp"
+                    android:layout_below="@id/restaurant_name"
+                    android:id="@+id/venue_cuisine"
+                    android:text="Burger"
+                    android:textColor="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+
+                <RelativeLayout
+                    android:visibility="gone"
+                    android:layout_marginTop="8dp"
+                    android:id="@+id/pic"
+                    android:layout_below="@+id/location"
+                    android:weightSum="1"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true">
+
+                    <com.wma.ozfoodhunter.fonts.TextView_Regular
+                        android:layout_weight="0.20"
+
+                        android:id="@+id/cat"
+                        android:drawablePadding="5dp"
+                        android:textSize="12sp"
+                        android:text="Category :"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        />
+
+                    <com.wma.ozfoodhunter.fonts.TextView_Regular
+                        android:layout_toRightOf="@+id/cat"
+                        android:layout_weight="0.40"
+
+                        android:id="@+id/cat_value"
+                        android:textSize="12sp"
+                        android:text="18"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        />
+                    <com.wma.ozfoodhunter.fonts.TextView_Regular
+                        android:layout_marginLeft="50dp"
+                        android:layout_toRightOf="@+id/cat_value"
+                        android:layout_weight="0.15"
+
+                        android:id="@+id/dishes"
+                        android:textSize="12sp"
+                        android:text="Dishes :"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        />
+                    <com.wma.ozfoodhunter.fonts.TextView_Regular
+                        android:layout_toRightOf="@+id/dishes"
+                        android:layout_weight="0.25"
+
+                        android:id="@+id/dish_value"
+                        android:textSize="12sp"
+                        android:text="400"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        />
+                </RelativeLayout>
+
+            </RelativeLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:weightSum="1"
+            android:orientation="horizontal"
+            android:gravity="right"
+            android:layout_margin="5dp"
+            >
+            <Button
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:textSize="12sp"
+                android:text="Lunch"
+                android:id="@+id/lunch_btn"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:layout_weight=".3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rectangle_edge"/>
+            <Button
+                android:textAllCaps="false"
+                android:gravity="center"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dp"
+                android:textSize="12sp"
+                android:text="Dinner"
+                android:id="@+id/dinner_btn"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:layout_weight=".3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rectangle_white"
+
+
+                />
+            <Button
+                android:textAllCaps="false"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:layout_marginLeft="5dp"
+                android:textSize="12sp"
+                android:text="Book table"
+                android:id="@+id/book_btn"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:layout_weight=".3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rectangle_white"
+                />
+        </LinearLayout>
+
+       <!-- <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            android:weightSum="1"
+            android:gravity="center_vertical"
+            android:layout_margin="8dp"
+            android:background="@color/light_gray"
+            android:visibility="gone"
+            >
+            <com.wma.ozfoodhunter.fonts.TextView_Regular
+                android:layout_weight="0.25"
+                android:textColor="@color/black"
+                android:id="@+id/min_order"
+                android:textSize="12sp"
+                android:text="Min.order :"
+                android:layout_width="0dp"
+                android:paddingLeft="20dp"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                />
+            <com.wma.ozfoodhunter.fonts.TextView_Regular
+                android:layout_toRightOf="@+id/min_order"
+                android:layout_weight="0.25"
+                android:textColor="@color/black"
+                android:id="@+id/min_order_value"
+                android:textSize="12sp"
+                android:layout_alignParentRight="true"
+                android:text=" $30.00"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                />
+            <com.wma.ozfoodhunter.fonts.TextView_Regular
+                android:layout_toRightOf="@+id/min_order_value"
+                android:layout_weight="0.30"
+                android:textColor="@color/black"
+                android:id="@+id/delivery_fee"
+                android:textSize="12sp"
+                android:text="Delivery fee :"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:paddingLeft="20dp"
+                />
+            <com.wma.ozfoodhunter.fonts.TextView_Regular
+                android:layout_weight="0.2"
+                android:textColor="@color/black"
+                android:id="@+id/delivery_fee_value"
+                android:textSize="12sp"
+                android:layout_alignParentRight="true"
+                android:text="$6:00"
+                android:textStyle="bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                />
+        </LinearLayout>-->
+
+</LinearLayout>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="3">
+
+    <RelativeLayout
+        android:background="@drawable/background_banner"
+        android:id="@+id/rel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:gravity="center">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_centerInParent="true"
+                >
+
+                <com.wma.ozfoodhunter.fonts.ED_Regular
+                    android:background="@drawable/search_rectangle_left"
+                    android:hint="Enter your suburb or postcode"
+                    android:gravity="center"
+                    android:textColor="@color/light_gray"
+                    android:layout_width="250dp"
+                    android:layout_height="30dp"
+                    android:id="@+id/search"
+                    android:cursorVisible="true"
+                    android:singleLine="true"
+                    />
+
+
+
+                <com.wma.ozfoodhunter.fonts.TextView_Regular
+                    android:drawableRight="@drawable/searchicon"
+                    android:background="@drawable/search_rectangle_right"
+                    android:layout_toRightOf="@+id/search"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:id="@+id/search1"
+                    android:cursorVisible="true" />
+            </RelativeLayout>
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                >
+                <com.wma.ozfoodhunter.fonts.BT_Regular
+                    android:gravity="center_vertical"
+                    android:layout_alignParentLeft="true"
+                    android:layout_width="90dp"
+                    android:layout_height="30dp"
+                    android:id="@+id/pickup_btn"
+                    android:background="@drawable/rectangle_edge_half_color"
+                    android:text="Pickup"
+                    android:textSize="15sp"
+                    android:textColor="@color/black"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textStyle="bold"
+                    />
+                <com.wma.ozfoodhunter.fonts.BT_Regular
+
+                    android:layout_toRightOf="@+id/pickup_btn"
+                    android:gravity="center_vertical"
+                    android:layout_width="90dp"
+                    android:layout_height="30dp"
+                    android:id="@+id/delivery_btn"
+                    android:background="@drawable/rectanle_edge_half_transparent"
+                    android:text="Delivery"
+                    android:textSize="15sp"
+                    android:textColor="@color/button"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textStyle="bold"
+                    />
+                <com.wma.ozfoodhunter.fonts.BT_Regular
+                    android:gravity="center_vertical"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:id="@+id/cuisine"
+                    android:background="@drawable/rectangle_edge"
+                    android:layout_width="90dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentRight="true"
+                    android:text="Cuisine"
+                    android:textSize="15sp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"/>
+
+            </RelativeLayout>
+
+            <com.wma.ozfoodhunter.fonts.TextView_Regular
+
+                android:id="@+id/restaurant_found"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:gravity="center"
+                android:layout_alignParentBottom="true"
+                android:background="#d1d1d1"
+                android:textColor="@color/colorPrimary"
+                android:text="List of Restaurants found at your location"/>
+        </RelativeLayout>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:id="@+id/lay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+    </LinearLayout>
+</LinearLayout>

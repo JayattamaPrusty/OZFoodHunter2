@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp">
+
+    <com.wma.ozfoodhunter.fonts.TextView_Regular
+        android:textColor="@color/black"
+        android:id="@+id/flatoffer"
+        android:drawablePadding="5dp"
+        android:gravity="start"
+        android:textSize="15sp"
+        android:text="FLAT 30% OF THAI FLAVOUR RESTAURANT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/delivery"/>
+
+
+    <com.wma.ozfoodhunter.fonts.TextView_Regular
+
+        android:textColor="@color/black"
+        android:id="@+id/offerdetails"
+        android:layout_marginTop="8dp"
+        android:textSize="10sp"
+        android:text="get 20% OFF on 1st order.Order 7times.8th is free.Spend $50 or more \n and receive afree to papadams(4pcs) the value of $2.50"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/delivery"/>
+
+    <com.wma.ozfoodhunter.fonts.BT_Regular
+
+        android:layout_gravity="end"
+        android:id="@+id/offerzone"
+        android:text="Order"
+        android:layout_marginTop="8dp"
+        android:textSize="12sp"
+        android:background="@color/button"
+        android:textColor="#ffffff"
+        android:layout_below="@+id/pic"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp" />
+    <view
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black"
+        android:layout_marginTop="5dp"/>
+
+</LinearLayout>

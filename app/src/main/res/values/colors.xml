@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#b71c1c</color>
+    <color name="colorPrimaryDark">#b71c1c</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="button">#9AC03F</color>
+    <color name="white">#FFffff</color>
+    <color name="black">#000000</color>
+    <color name="yellow">#ffc107</color>
+    <color name="grey">#d1d1d1</color>
+    <color name="green">#4caf50</color>
+    <color name="light_gray">#4A000000</color>
+    <color name="light_gray_transparent">#1a000000</color>
+    <color name="edittext_border">#fce6e2e2</color>
+    <color name="divder_color">#00000000</color>
+    <color name="top_color">#123654</color>
+    <color name="sky_color">#71dbe9</color>
+    <color name="sky_color_translucent">#0071dbe9</color>
+
+</resources>

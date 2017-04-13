@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">OZ Food Hunter</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="about_us">Oz Food Hunter is an online ordering website providing services in all over Australia.</string>
+    <string name="about_us_1">2500+\nRestaurants</string>
+    <string name="about_us_2">Oz Food Hunter is an online ordering website providing services in all over Australia.</string>
+    <string name="about_us_3">Oz Food Hunter is an online ordering website providing services in all over Australia.</string>
+    <string name="about_us_4">Oz Food Hunter is an online ordering website providing services in all over Australia.</string>
+    <string name="about_us_5">Oz Food Hunter is an online ordering website providing services in all over Australia.</string>
+    <string name="about_us_6">Oz Food Hunter is an online ordering website providing services in all over Australia.</string>
+    <string name="statement">OZ Food Hunter is a website which provide products/service online and through website,
+        the terms and conditions of use are as follows.
+        The OZ Food Hunter website free to use for customers and they can order through the website and pay online. 
+        Use and access of this website is subject to users’ agreements of the website terms and conditions. Terms and conditions will
+        apply in various circumstances which will not affect your legal rights as a user.</string>
+    <string name="who_we_are">ozfoodhunter.com.au was established in May-2015 by CEO VEERA VEL with backing of a
+        dedicated and hardworking Team. These originators have been building universal web organizations for over 10 years.
+        They were upheld by an accomplished, talented and spurred group united by the energy to make Online Food Ordering much
+        easier by providing best in class customer satisfaction to our beloved customers and restaurants.</string>
+    <string name="website_content">The content of the website will be change without any notice which you agreed 
+        and from time to time changing rights will be reserved by the OZ Food Hunter.</string>
+    <string name="order_placing">
+        OZ Food Hunter reserves the rights to hire reliable third parties to place and process an order from local or overseas. However, OZ Food Hunter is accepting the quality of service and goods will be delivered on responsible time frame. And also the customers are responsible to check clearly the order before agreeing and placing the order.
+
+Once the order submitted by customer, the order confirmed and directed to the restaurant partners by OZ Food Hunter. After confirming the order, the restaurant will be fully responsible to food prepare and deliver it to you. If there are any disputes you need to resolve between you and restaurant.
+As a customer please provide the correct and active contact details like email, Telephone numbers, delivery address and post codes. If during the delivery the provided contact details are incorrect, OZ Food Hunter is not responsible for undelivered or delayed in delivery. We are not liable if order is being rejected by restaurants.
+    </string>
+    <string name="idemnity">You agree to indemnify the hold of OZ Food Hunter services, directors, employees and agencies, against any and all claims, losses, damages, debt and expenses (include but not limited legal fee) raising from; your breach of any in this terms and conditions,
+        any violation of the third party rights, copyrights and privacy policy.</string>
+    <string name="order_views">The OZ Food Hunter review page is fully open for OZ Food Hunter customers and they can share their ordering experience through the OZ Food Hunter. OZ Food Hunter reserves the right to exclude the reviews and rating if the reviews are abusive, offensive and discriminative to restaurant or customers. OZ Food Hunter reserves the
+        rights to check the content and URL of the reviews to exclude if it’s offensive or abusive.</string>
+    <string name="Liability_limitations">
+        Under no circumstances the OZ Food Hunter is liable for any damages, injuries, losses, illness and death by using website or by use of content, information opinion.  OZ Food Hunter is disclaiming any liability from errors, third party misuses and advertisers. OZ Food Hunter is not liable
+        and responsible of poor quality products and services from the restaurants and third party.
+    </string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

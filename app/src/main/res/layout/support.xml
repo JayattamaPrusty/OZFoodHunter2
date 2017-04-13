@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:layout_centerVertical="true">
+
+    <com.wma.ozfoodhunter.fonts.TextView_Regular
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="For any trouble call us on"
+        android:padding="20dp"
+        android:gravity="center"/>
+    <com.wma.ozfoodhunter.fonts.TextView_Regular
+        android:id="@+id/call_no"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="07 3177 7088"
+        android:padding="20dp"
+        android:gravity="center"
+        android:textColor="@color/black"/>
+
+    <com.wma.ozfoodhunter.fonts.BT_Regular
+        android:id="@+id/call_btn"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/support_pic"
+        android:padding="30dp"
+        android:gravity="center"
+        android:layout_gravity="center"/>
+    <com.wma.ozfoodhunter.fonts.TextView_Regular
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="Email : info@ozfoodhunter.com.au"
+        android:padding="20dp"
+        android:gravity="center"/>
+
+
+</LinearLayout>

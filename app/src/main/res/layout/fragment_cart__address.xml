@@ -1,0 +1,116 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    tools:context="com.wma.ozfoodhunter.Fragments.FragmentCart_time">
+    <com.wma.ozfoodhunter.fonts.TextView_Medium
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="How you would like to \n be delivered?"
+        android:textSize="20dp"
+        android:textAlignment="center"
+        android:layout_margin="20dp"
+        android:textColor="@color/black"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1"
+        >
+        <com.wma.ozfoodhunter.fonts.TextView_Light
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".2"/>
+        <CheckBox
+            android:layout_weight=".4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Home delivery"
+            android:textSize="14sp"
+            android:buttonTint="@color/sky_color"
+            android:backgroundTint="@color/sky_color"
+
+
+            />
+        <com.wma.ozfoodhunter.fonts.TextView_Light
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"/>
+        <CheckBox
+
+            android:layout_weight=".3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Pick up"
+            android:textSize="14sp"
+            android:backgroundTint="@color/sky_color"
+            android:buttonTint="@color/sky_color"
+            />
+        <com.wma.ozfoodhunter.fonts.TextView_Light
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".1"/>
+
+    </LinearLayout>
+
+    <com.wma.ozfoodhunter.fonts.TextView_Regular
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Your order will be delivered to this location "
+        android:textSize="16dp"
+        android:textAlignment="center"
+        android:layout_margin="20dp"
+        android:textColor="@color/black"
+        />
+    <ImageView
+        android:layout_margin="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/address_icon_cart"
+        android:layout_gravity="center"
+        android:scaleType="fitXY"/>
+
+    <com.wma.ozfoodhunter.fonts.TextView_Regular
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Your order will be delivered to this location "
+        android:textSize="16dp"
+        android:textAlignment="center"
+        android:layout_margin="20dp"
+        android:textColor="@color/black"
+        />
+    <com.wma.ozfoodhunter.fonts.TextView_Regular
+        android:padding="10dp"
+        android:id="@+id/add_address"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add new delivery address "
+        android:textSize="16dp"
+        android:textAlignment="center"
+        android:layout_margin="20dp"
+        android:textColor="@color/sky_color"
+        />
+
+    <com.wma.ozfoodhunter.fonts.BT_Regular
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:text="Done"
+        android:layout_margin="5dp"
+        android:id="@+id/address_done_btn"
+        android:layout_marginTop="10dp"
+        android:background="@color/button"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:textAllCaps="false"
+        />
+
+</LinearLayout>

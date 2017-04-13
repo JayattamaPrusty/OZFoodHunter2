@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/imageview"
+        android:scaleType="fitXY"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/splash_screen"/>
+
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="80dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.wma.ozfoodhunter.fonts.TextView_Bold
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/headerText"
+            android:layout_gravity="center"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp"
+            android:textSize="22sp"/>
+        <com.wma.ozfoodhunter.fonts.TextView_Regular
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/subText"
+            android:layout_gravity="center"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:textSize="16sp"/>
+
+        <com.wma.ozfoodhunter.fonts.TextView_Regular
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:id="@+id/subtxtblank"
+            android:layout_gravity="center"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:textSize="16sp"/>
+
+        <com.wma.ozfoodhunter.fonts.BT_Regular
+            android:visibility="gone"
+            android:id="@+id/skip"
+            android:textColor="@color/white"
+            android:background="@color/button"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:text="SKIP"
+            android:layout_height="30dp" />
+
+    </LinearLayout>
+</RelativeLayout>

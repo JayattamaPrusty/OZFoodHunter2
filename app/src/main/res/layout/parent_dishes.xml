@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey"/>
+
+    <com.wma.ozfoodhunter.fonts.TextView_Regular
+
+        android:id="@+id/parent_dish_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:drawablePadding="5dp"
+        android:drawableRight="@drawable/expanda_rrow"
+        android:gravity="left|center"
+        android:padding="8dp"
+        android:text="Special"
+        android:textSize="14sp"
+        android:textColor="@color/black" />
+    <View
+        android:layout_below="@+id/parent_dish_name"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey"/>
+
+</RelativeLayout>

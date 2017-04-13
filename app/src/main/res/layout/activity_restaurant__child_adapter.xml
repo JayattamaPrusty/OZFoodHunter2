@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_restaurant__child_adapter"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.wma.ozfoodhunter.Restaurant_ChildAdapter_Activity">
+    <!--<android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_scrollFlags="enterAlways">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:minHeight="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                android:layout_gravity="center"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/title"
+                    android:layout_gravity="center"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+                &lt;!&ndash;<include layout="@layout/toolbar_title"/>&ndash;&gt;
+            </android.support.v7.widget.Toolbar>
+
+        </FrameLayout>
+
+    </android.support.design.widget.AppBarLayout>
+-->
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/continue_btn"
+        android:id="@+id/recyclerView_child_section">
+    </android.support.v7.widget.RecyclerView>
+    <com.wma.ozfoodhunter.fonts.BT_Regular
+        android:id="@+id/continue_btn"
+        android:layout_width="250dp"
+        android:layout_height="30dp"
+        android:text="Continue"
+        android:textColor="@color/white"
+        android:background="@drawable/rectangle_edge"
+        android:textAlignment="center"
+        android:textSize="16dp"
+        android:gravity="center_vertical"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
+        android:textAllCaps="false"
+        />
+</RelativeLayout>

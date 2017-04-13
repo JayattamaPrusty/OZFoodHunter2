@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_scrollFlags="enterAlways">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:minHeight="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                android:layout_gravity="center"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/title"
+                    android:layout_gravity="center"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+                <!--<include layout="@layout/toolbar_title"/>-->
+            </android.support.v7.widget.Toolbar>
+
+        </FrameLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        android:layout_below="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:layout_width="match_parent"
+            android:layout_height="100dp">
+            <ImageView
+                android:id="@+id/img"
+                android:src="@drawable/food_pic1"
+                android:layout_weight="0.7"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_weight="1.6"
+                android:layout_width="0dp"
+                android:layout_marginLeft="5dp"
+                android:layout_height="match_parent">
+                <com.wma.ozfoodhunter.fonts.TextView_Bold
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/name"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Burger"/>
+                <com.wma.ozfoodhunter.fonts.TextView_Regular
+                    android:id="@+id/address"
+                    android:textSize="13sp"
+                    android:text="Brisbane 4000"
+                    android:drawablePadding="5dp"
+                    android:drawableLeft="@drawable/street_location_icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <ImageView
+                android:layout_weight="0.7"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/deals_offer"
+                android:scaleType="fitXY"/>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <com.wma.ozfoodhunter.fonts.TextView_Bold
+            android:text="Offer deals "
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+            <View
+                android:layout_margin="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_gravity="center_vertical"
+                android:background="@color/black"/>
+        </LinearLayout>
+        <com.wma.ozfoodhunter.fonts.TextView_Bold
+            android:layout_marginTop="5dp"
+            android:textColor="@color/black"
+            android:text="FLAT 30% OF THAI FLAVOUR RESTAURANT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <com.wma.ozfoodhunter.fonts.TextView_Regular
+            android:textSize="10sp"
+            android:text="Get 20% OFF on 1st order.Order 7 times 8th time is FREE. Spend $50 or more and receive a free to pappadams(4pcs) the value of $2.50."
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <com.wma.ozfoodhunter.fonts.BT_Regular
+            android:layout_marginTop="10dp"
+            android:layout_gravity="right"
+            android:background="@color/button"
+            android:layout_width="wrap_content"
+            android:text="Order"
+            android:textColor="@color/white"
+            android:layout_height="30dp" />
+    </LinearLayout>
+
+
+</RelativeLayout>

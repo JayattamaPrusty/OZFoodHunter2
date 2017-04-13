@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_scrollFlags="enterAlways">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:minHeight="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                android:layout_gravity="center"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/title"
+                    android:layout_gravity="center"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+                <!--<include layout="@layout/toolbar_title"/>-->
+            </android.support.v7.widget.Toolbar>
+
+        </FrameLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:background="@drawable/signup"
+        >
+
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_below="@+id/emaillayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/fnamelay"
+        android:hint="First Name">
+        <com.wma.ozfoodhunter.fonts.ED_Regular
+            android:id="@+id/fname"
+            android:padding="10dp"
+            android:inputType="text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/black"
+            android:cursorVisible="false"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_below="@+id/emaillayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lnamelay"
+        android:hint="Last Name">
+        <com.wma.ozfoodhunter.fonts.ED_Regular
+            android:id="@+id/lname"
+            android:padding="10dp"
+            android:inputType="text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/black"
+            android:cursorVisible="false"/>
+    </android.support.design.widget.TextInputLayout>
+
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_below="@+id/emaillayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/emaillay"
+        android:hint="Email">
+        <com.wma.ozfoodhunter.fonts.ED_Regular
+            android:id="@+id/email"
+            android:padding="10dp"
+            android:inputType="textEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/black"
+            android:cursorVisible="false"/>
+    </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_below="@+id/emaillayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/phonelay"
+            android:hint="Phone Number">
+            <com.wma.ozfoodhunter.fonts.ED_Regular
+                android:id="@+id/phoneno"
+                android:padding="10dp"
+                android:inputType="number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/black"
+                android:cursorVisible="false"/>
+        </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_below="@+id/emaillayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/passwordlay"
+        android:hint="Password">
+        <com.wma.ozfoodhunter.fonts.ED_Regular
+            android:id="@+id/password"
+            android:padding="10dp"
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/black"
+            android:cursorVisible="false"/>
+    </android.support.design.widget.TextInputLayout>
+   <!-- <android.support.design.widget.TextInputLayout
+        android:layout_below="@+id/emaillayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/confirmlay"
+        android:hint="Confirm Password">
+        <com.wma.ozfoodhunter.fonts.ED_Regular
+            android:id="@+id/confirm"
+            android:padding="10dp"
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/black"
+            android:cursorVisible="false"/>
+    </android.support.design.widget.TextInputLayout>-->
+
+
+
+   <!-- <android.support.design.widget.TextInputLayout
+        android:layout_below="@+id/emaillayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/statelay"
+        android:hint="State">
+        <com.wma.ozfoodhunter.fonts.ED_Regular
+            android:id="@+id/state"
+            android:padding="10dp"
+            android:inputType="text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </android.support.design.widget.TextInputLayout>-->
+
+   <!-- <android.support.design.widget.TextInputLayout
+        android:layout_below="@+id/emaillayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/suburblay"
+        android:hint="Suburb">
+        <com.wma.ozfoodhunter.fonts.ED_Regular
+            android:id="@+id/suburb"
+            android:padding="10dp"
+            android:inputType="text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </android.support.design.widget.TextInputLayout>-->
+
+
+    <com.wma.ozfoodhunter.fonts.BT_Regular
+        android:layout_marginTop="15dp"
+        android:id="@+id/signup"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@color/button"
+        android:text="SIGN UP"
+        android:gravity="center"
+        android:textColor="@color/white"/>
+
+    <com.wma.ozfoodhunter.fonts.TextView_Regular
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:text="Sign-up for faster orders,discounts \n and more"/>
+    </LinearLayout>
+
+
+</LinearLayout>

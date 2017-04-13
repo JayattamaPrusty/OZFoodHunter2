@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login">
+    
+   <!-- <android.support.design.widget.TextInputLayout
+        android:id="@+id/emaillayout"
+        android:layout_above="@+id/passwordlay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        android:background="@drawable/rectangle_transparent"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="13dp"
+        android:layout_marginRight="13dp"
+        >-->
+        <com.wma.ozfoodhunter.fonts.ED_Regular
+
+            android:layout_above="@+id/password"
+            android:hint="Email"
+            android:id="@+id/email"
+            android:padding="8dp"
+            android:inputType="textEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:cursorVisible="false"
+            android:backgroundTint="@null"
+            android:background="@drawable/rectangle_edge_black"
+            android:layout_margin="10dp"/>
+   <!-- </android.support.design.widget.TextInputLayout>-->
+   <!-- <android.support.design.widget.TextInputLayout
+        android:layout_above="@+id/login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/passwordlay"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="13dp"
+        android:background="@drawable/rectangle_transparent"
+        android:layout_marginRight="13dp"
+        android:hint="Password">-->
+        <com.wma.ozfoodhunter.fonts.ED_Regular
+            android:layout_margin="10dp"
+            android:layout_above="@+id/login"
+            android:id="@+id/password"
+            android:padding="8dp"
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@null"
+            android:background="@drawable/rectangle_edge_black"
+            android:cursorVisible="false"
+            android:hint="Password"/>
+      <!--  </android.support.design.widget.TextInputLayout>-->
+    <com.wma.ozfoodhunter.fonts.BT_Regular
+        android:id="@+id/login"
+        android:text="LOGIN"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="13dp"
+        android:layout_marginRight="13dp"
+        android:textColor="@color/white"
+        android:layout_above="@+id/forgotpassword"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@color/button"/>
+
+    <com.wma.ozfoodhunter.fonts.TextView_Bold
+        android:id="@+id/forgotpassword"
+        android:layout_above="@+id/guest"
+        android:text="Forgot Password"
+        android:textStyle="bold"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="13dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <com.wma.ozfoodhunter.fonts.TextView_Bold
+        android:id="@+id/signup"
+        android:layout_alignParentRight="true"
+        android:layout_above="@+id/guest"
+        android:layout_marginRight="13dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="3dp"
+        android:text="Sign Up"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <com.wma.ozfoodhunter.fonts.BT_Regular
+        android:id="@+id/guest"
+        android:layout_marginTop="12dp"
+        android:text="CONTINUE AS A GUEST"
+        android:layout_marginLeft="13dp"
+        android:layout_marginRight="13dp"
+        android:textColor="@color/white"
+        android:layout_above="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@color/button"/>
+    <com.wma.ozfoodhunter.fonts.TextView_Light
+        android:id="@+id/text"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:textSize="12sp"
+        android:drawableLeft="@drawable/nb_icon"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorAccent"
+        android:layout_marginBottom="33dp"
+        android:text="Guest user will not get any offer or cash backs"/>
+
+</RelativeLayout>

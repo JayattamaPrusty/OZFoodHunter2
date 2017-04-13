@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.wma.ozfoodhunter.Fragments.Mycart_default">
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.wma.ozfoodhunter.Fragments.Mycart_default">
+
+    <include
+        layout="@layout/no_cart_item_layout"
+        android:visibility="gone"/>
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="1"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/button"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp">
+        <com.wma.ozfoodhunter.fonts.TextView_Medium
+            android:text="Wallet Balance"
+            android:layout_weight="1"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <com.wma.ozfoodhunter.fonts.TextView_Medium
+            android:text="$5.00"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:weightSum="1"
+        android:layout_margin="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.wma.ozfoodhunter.fonts.TextView_Medium
+            android:text="Your Order"
+            android:layout_weight="1"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <com.wma.ozfoodhunter.fonts.TextView_Medium
+            android:id="@+id/edit"
+            android:text="Edit"
+            android:textSize="14sp"
+            android:textColor="@color/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/cartlistItems"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:dividerHeight="2dp"
+        />
+
+    <com.wma.ozfoodhunter.fonts.TextView_Medium
+        android:id="@+id/additem"
+        android:layout_gravity="right"
+        android:layout_weight="0"
+        android:gravity="right|center"
+        android:layout_margin="8dp"
+        android:drawableLeft="@drawable/ic_increase"
+        android:drawablePadding="5dp"
+        android:text="Add Items"
+        android:textColor="@color/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <com.wma.ozfoodhunter.fonts.TextView_Medium
+        android:text="Pricing Details"
+        android:layout_margin="8dp"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:layout_margin="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.wma.ozfoodhunter.fonts.TextView_Light
+            android:text="SubTotal"
+            android:layout_weight="1"
+            android:textSize="14sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <com.wma.ozfoodhunter.fonts.TextView_Light
+            android:text=""
+            android:textColor="@color/button"
+            android:textSize="14sp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <com.wma.ozfoodhunter.fonts.TextView_Light
+            android:text="$598"
+            android:layout_weight="1"
+            android:layout_gravity="right"
+            android:gravity="right|center"
+            android:textSize="14sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:layout_margin="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.wma.ozfoodhunter.fonts.TextView_Light
+            android:text="Delivery Fees"
+            android:layout_weight="1"
+            android:textSize="14sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <com.wma.ozfoodhunter.fonts.TextView_Light
+            android:text=""
+            android:textColor="@color/button"
+            android:textSize="14sp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <com.wma.ozfoodhunter.fonts.TextView_Light
+            android:text="$5.00"
+            android:layout_weight="1"
+            android:layout_gravity="right"
+            android:gravity="right|center"
+            android:textSize="14sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:layout_margin="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.wma.ozfoodhunter.fonts.TextView_Light
+            android:text="Total inc. GST"
+            android:layout_weight="1"
+            android:textSize="14sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <com.wma.ozfoodhunter.fonts.TextView_Light
+            android:text=""
+            android:textColor="@color/button"
+            android:textSize="14sp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <com.wma.ozfoodhunter.fonts.TextView_Light
+            android:text="$14.00"
+            android:layout_weight="1"
+            android:layout_gravity="right"
+            android:gravity="right|center"
+            android:textSize="14sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:layout_margin="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.wma.ozfoodhunter.fonts.TextView_Light
+            android:text="Wallet"
+            android:layout_weight=".4"
+            android:textSize="14sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            />
+        <CheckBox
+
+            android:layout_weight=".8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Use all"
+            android:textSize="14sp"
+            android:buttonTint="@color/black"
+            android:backgroundTint="@color/black"
+            />
+        <CheckBox
+
+            android:layout_weight=".6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Partly"
+            android:textSize="14sp"
+            android:backgroundTint="@color/black"
+            android:buttonTint="@color/black"
+            />
+
+        <com.wma.ozfoodhunter.fonts.TextView_Light
+            android:text=""
+            android:textColor="@color/button"
+            android:textSize="14sp"
+            android:layout_weight=".2"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <com.wma.ozfoodhunter.fonts.TextView_Light
+            android:text="$598"
+            android:layout_weight="1"
+            android:layout_gravity="right"
+            android:gravity="right|center"
+            android:textSize="14sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <com.wma.ozfoodhunter.fonts.BT_Regular
+        android:layout_gravity="end"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:text="Done"
+        android:layout_margin="5dp"
+        android:id="@+id/addcart"
+        android:layout_marginTop="10dp"
+        android:background="@color/button"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:textAllCaps="false"
+        />
+
+</LinearLayout>
+</android.support.v4.widget.NestedScrollView>

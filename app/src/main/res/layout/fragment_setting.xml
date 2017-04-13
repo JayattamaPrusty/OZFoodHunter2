@@ -1,0 +1,140 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.wma.ozfoodhunter.Fragments.Setting">
+    <com.wma.ozfoodhunter.fonts.TextView_Regular
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Account"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:background="@color/grey"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/changepw">
+        <com.wma.ozfoodhunter.fonts.TextView_Regular
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Change password"
+            android:drawableLeft="@drawable/setting_forgot_password_icon"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:drawablePadding="10dp"
+            />
+        <ImageView
+
+            android:id="@+id/chngpw_arw"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:src="@drawable/setting_chngpw_arrw"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/notification">
+        <com.wma.ozfoodhunter.fonts.TextView_Regular
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Notifications"
+            android:drawableLeft="@drawable/setting_notification"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:drawablePadding="10dp"
+            />
+        <ImageView
+
+            android:id="@+id/notification_arw"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:src="@drawable/setting_chngpw_arrw"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey"/>
+
+    <com.wma.ozfoodhunter.fonts.TextView_Regular
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="More"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:background="@color/grey"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/help">
+        <com.wma.ozfoodhunter.fonts.TextView_Regular
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Help/faq"
+            android:drawableLeft="@drawable/setting_help_icon"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:drawablePadding="10dp"
+            />
+        <ImageView
+
+            android:id="@+id/help_arw"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:src="@drawable/setting_chngpw_arrw"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/terms">
+        <com.wma.ozfoodhunter.fonts.TextView_Regular
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Terms of Service"
+            android:drawableLeft="@drawable/settins_terms"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:drawablePadding="10dp"
+
+            />
+        <ImageView
+
+            android:id="@+id/terms_arw"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:src="@drawable/setting_chngpw_arrw"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>
