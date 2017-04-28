@@ -39,6 +39,16 @@ public class MySharedPrefrencesData {
         SharedPreferences pref = mContext.getSharedPreferences("MyPref", MODE_PRIVATE);
         return pref.getString("user_id","");
     }
+    public void setReferal(Context mContext, String referal){
+        SharedPreferences pref = mContext.getSharedPreferences("MyPref", MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putString("referal", referal);
+        editor.commit(); // commit changes
+    }
+    public String getReferal(Context mContext){
+        SharedPreferences pref = mContext.getSharedPreferences("MyPref", MODE_PRIVATE);
+        return pref.getString("referal","");
+    }
 
     public void setPartyEmail(Context mContext, String party_email){
         SharedPreferences pref = mContext.getSharedPreferences("MyPref", MODE_PRIVATE);

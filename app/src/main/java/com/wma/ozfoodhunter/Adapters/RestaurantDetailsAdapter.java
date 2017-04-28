@@ -2,6 +2,9 @@ package com.wma.ozfoodhunter.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,12 +26,17 @@ import com.wma.ozfoodhunter.BeanClasses.Dishitem;
 import com.wma.ozfoodhunter.BeanClasses.ParentDish;
 import com.wma.ozfoodhunter.BeanClasses.ParentHolder;
 import com.wma.ozfoodhunter.BeanClasses.Restaurant_Dish_Model;
+import com.wma.ozfoodhunter.Fragments.PreferenceDialog;
 import com.wma.ozfoodhunter.MyCart;
 import com.wma.ozfoodhunter.R;
 import com.wma.ozfoodhunter.RestarantDetails;
 import com.wma.ozfoodhunter.Restaurant_ChildAdapter_Activity;
+import com.wma.ozfoodhunter.Utils.AllValidation;
 import com.wma.ozfoodhunter.Widgets.Constants;
+import com.wma.ozfoodhunter.database.Localdb;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -41,6 +49,8 @@ public class RestaurantDetailsAdapter extends ExpandableRecyclerViewAdapter<Pare
     ExpandCollapseController expandCollapseController;
     protected ExpandableList expandableList;
     View view;
+    Localdb localdb;
+    ArrayList<Dishdetail>dishdetails_iteam=new ArrayList<>();
 
 
 
@@ -52,11 +62,20 @@ public class RestaurantDetailsAdapter extends ExpandableRecyclerViewAdapter<Pare
     }
 
     @Override
+    public int getItemCount() {
+        return super.getItemCount();
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return super.getItemViewType(position);
+    }
+
+    @Override
 
     public ParentHolder onCreateGroupViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = (LayoutInflater) ctx.getSystemService(ctx.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.parent_dishes, parent, false);
-
         return new ParentHolder(view);
 
     }
@@ -65,30 +84,59 @@ public class RestaurantDetailsAdapter extends ExpandableRecyclerViewAdapter<Pare
     public ChildHolder onCreateChildViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = (LayoutInflater) ctx.getSystemService(ctx.LAYOUT_INFLATER_SERVICE);
         view = inflater.inflate(R.layout.child_dishes, parent, false);
+        localdb=new Localdb(ctx);
         return new ChildHolder(view);
     }
 
     @Override
     public void onBindChildViewHolder(ChildHolder holder, int flatPosition, ExpandableGroup group, int childIndex) {
 
-//       final ChildDish childDish = ((ParentDish) group).getItems().get(childIndex);
-//        String c= Constants.cuisines[childIndex];
        final Dishdetail dishdetail=((Dishitem)group).getItems().get(childIndex);
-
-
+        String flagaddchoice=dishdetail.getFlgAddChoices();
+        if(flagaddchoice.equalsIgnoreCase("0"))
+        {
         holder.childdishname.setText(dishdetail.getStDishName());
+        }
+        else
+        {
+            holder.childdishname.setText(dishdetail.getStDishName()+" "+'*');
+        }
+
+
         if(dishdetail.getStDishName().isEmpty())
         {
-            holder.childlay.setVisibility(View.GONE);
-        }else{
-            holder.childlay.setVisibility(View.VISIBLE);
+            holder.linearLayout.setVisibility(View.GONE);
+            holder.child_text.setText(dishdetail.getDishDesription());
 
+        }else
+        {
+            holder.linearLayout.setVisibility(View.VISIBLE);
+            holder.child_text.setText(dishdetail.getDishDesription());
+            holder.price.setText("$"+dishdetail.getStPrice().get(0).getMenuPrice());
+            holder.linearLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    int qty=0;
+                    if(
+                        dishdetail.getExtrasdetail().size()>0 || dishdetail.getStPrice().size()>1){
+                        Intent intent=new Intent(ctx,Restaurant_ChildAdapter_Activity.class);
+                        intent.putExtra("extrasdetaillist", (Serializable) dishdetail.getExtrasdetail());
+                        intent.putExtra("pricelist", (Serializable) dishdetail.getStPrice());
+                        ctx.startActivity(intent);
+
+                    }
+                    else {
+                        qty++;
+                        localdb.insertCategory(" "," ",qty);
+                        AllValidation.myToast(ctx,"dish is successfully added to cart ");
+                    }
+
+                }
+            });
         }
-        try {
-            holder.childitemsize.setText(dishdetail.getStPrice().get(0).getPriceItem());
-            holder.price.setText(" $ " + dishdetail.getStPrice().get(0).getMenuPrice());
 
-        }catch (Exception e){}
+
         if(dishdetail.getDishDesription()==null || dishdetail.getDishDesription().isEmpty())
         {
             holder.child_text.setVisibility(View.GONE);
@@ -98,21 +146,11 @@ public class RestaurantDetailsAdapter extends ExpandableRecyclerViewAdapter<Pare
             holder.child_text.setVisibility(View.VISIBLE);
         }
 
-        holder.childlay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                ctx.startActivity(new Intent(ctx, MyCart.class) );
-            }
-        });
-
     }
 
     @Override
-    public void onBindGroupViewHolder(ParentHolder holder, int flatPosition, ExpandableGroup group) {
-
-//        String c= Constants.cuisines[flatPosition];
-//        holder.parent_dish_name.setText(c);
+    public void onBindGroupViewHolder(ParentHolder holder, int flatPosition, ExpandableGroup group)
+    {
         Dishitem dishitem=((Dishitem)group);
         holder.parent_dish_name.setText(dishitem.getCuisineName());
 

@@ -10,8 +10,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.wma.ozfoodhunter.Adapters.RestaurantPriceAdapter;
 import com.wma.ozfoodhunter.Adapters.RestaurantSectionAdapter;
+import com.wma.ozfoodhunter.BeanClasses.Extrasdetail;
 import com.wma.ozfoodhunter.BeanClasses.RestaurantItemBeans;
+import com.wma.ozfoodhunter.BeanClasses.StPrice;
 
 import java.util.ArrayList;
 
@@ -19,7 +22,9 @@ public class Restaurant_ChildAdapter_Activity extends AppCompatActivity implemen
     Toolbar toolbar;
     ActionBar actionbar;
     RestaurantSectionAdapter adapter;
-    private ArrayList<RestaurantItemBeans> items;
+    RestaurantPriceAdapter restaurantPriceAdapter;
+    private ArrayList<Extrasdetail> extrasdetailArrayList;
+    private ArrayList<StPrice> stPriceArrayList;
     Button continue_btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,12 +39,20 @@ public class Restaurant_ChildAdapter_Activity extends AppCompatActivity implemen
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         continue_btn=(Button)findViewById(R.id.continue_btn);
         continue_btn.setOnClickListener(this);
-        items=new ArrayList<>();
+        extrasdetailArrayList= (ArrayList<Extrasdetail>) getIntent().getSerializableExtra("extrasdetaillist");
+        stPriceArrayList= (ArrayList<StPrice>) getIntent().getSerializableExtra("pricelist");
+
         RecyclerView recyclerView = (RecyclerView)findViewById(R.id.recyclerView_child_section);
-        adapter = new RestaurantSectionAdapter(this, items);
+        adapter = new RestaurantSectionAdapter(this, extrasdetailArrayList);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter.notifyDataSetChanged();
+
+        RecyclerView recyclerView1 = (RecyclerView)findViewById(R.id.recyclerView_child_price);
+        restaurantPriceAdapter = new RestaurantPriceAdapter(this,stPriceArrayList);
+        recyclerView1.setAdapter(restaurantPriceAdapter);
+        recyclerView1.setLayoutManager(new LinearLayoutManager(this));
+        restaurantPriceAdapter.notifyDataSetChanged();
     }
 
     @Override

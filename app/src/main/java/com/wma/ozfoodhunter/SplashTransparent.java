@@ -1,5 +1,6 @@
 package com.wma.ozfoodhunter;
 
+import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Handler;
@@ -8,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 
 public class SplashTransparent extends Activity {
@@ -24,39 +26,37 @@ public class SplashTransparent extends Activity {
         if (savedInstanceState == null) {
             flyIn();
         }
+        endSplash();
 
-        new Handler().postDelayed(new Runnable() {
-
-            @Override
-            public void run() {
-                endSplash();
-            }
-        }, 3000);
     }
-
-
 
     private void flyIn() {
 
         animation = AnimationUtils.loadAnimation(this, R.anim.activity_open_translate_from_bottom);
         logo.startAnimation(animation);
-        logo.startAnimation(animation);
 
     }
 
     private void endSplash() {
-        animation = AnimationUtils.loadAnimation(this,
-                R.anim.activity_open_translate_from_bottom);
-        logo.startAnimation(animation);
 
+        animation = AnimationUtils.loadAnimation(this,
+                R.anim.slide_up);
+        animation.setDuration(2000);
+        logo.startAnimation(animation);
         animation.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationEnd(Animation arg0) {
 
-                Intent intent = new Intent(getApplicationContext(),
-                        Walkthrough.class);
-                startActivity(intent);
-                finish();
+                new Handler().postDelayed(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        Intent intent = new Intent(getApplicationContext(),
+                                Splash.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                }, 3000);
             }
 
             @Override

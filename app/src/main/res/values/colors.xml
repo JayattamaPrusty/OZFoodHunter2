@@ -16,5 +16,6 @@
     <color name="top_color">#123654</color>
     <color name="sky_color">#71dbe9</color>
     <color name="sky_color_translucent">#0071dbe9</color>
+    <color name="violet">#7a07cc</color>
 
 </resources>

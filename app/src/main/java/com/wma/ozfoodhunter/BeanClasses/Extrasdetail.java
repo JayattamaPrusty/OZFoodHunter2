@@ -1,8 +1,9 @@
 package com.wma.ozfoodhunter.BeanClasses;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Extrasdetail {
+public class Extrasdetail implements Serializable{
 
     private String type;
     private List<Extra> extras = null;

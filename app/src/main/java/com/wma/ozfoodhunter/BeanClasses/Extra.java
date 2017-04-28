@@ -2,7 +2,9 @@
 package com.wma.ozfoodhunter.BeanClasses;
 
 
-public class Extra {
+import java.io.Serializable;
+
+public class Extra implements Serializable {
 
     private String id;
     private String attribute_name;

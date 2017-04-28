@@ -70,7 +70,7 @@ public class Splash extends Activity {
                     Commons.postcode = new String[pm.getResults().size()];
                     for(int i=0;i<pm.getResults().size()&& pm.getResults()!=null;i++)
                     {
-                        Commons.postcode[i]=pm.getResults().get(i).getSt_suburb()+"-"+pm.getResults().get(i).getSt_postcode();
+                        Commons.postcode[i]=pm.getResults().get(i).getSt_suburb()+" - "+pm.getResults().get(i).getSt_postcode();
                     }
 
                 }else

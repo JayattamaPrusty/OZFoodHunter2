@@ -30,6 +30,9 @@ public class Restaurant_model {
     private Object st_last_name;
     private String st_post_code;
     private String st_delivery_charge;
+    private String Close_open_st;
+    private String agree_table_booking;
+    private List<Filtercuisine> filter_cuisine = null;
     private List<Discountlist> discountlist = null;
     private DeliverySchedule delivery_schedule;
     private PickupSchedule pickup_schedule;
@@ -243,6 +246,30 @@ public class Restaurant_model {
         this.st_delivery_charge = stDeliveryCharge;
     }
 
+    public String getClose_open_st() {
+        return Close_open_st;
+    }
+
+    public void setClose_open_st(String close_open_st) {
+        Close_open_st = close_open_st;
+    }
+
+    public String getAgree_table_booking() {
+        return agree_table_booking;
+    }
+
+    public void setAgree_table_booking(String agree_table_booking) {
+        this.agree_table_booking = agree_table_booking;
+    }
+
+    public List<Filtercuisine> getFilter_cuisine() {
+        return filter_cuisine;
+    }
+
+    public void setFilter_cuisine(List<Filtercuisine> filter_cuisine) {
+        this.filter_cuisine = filter_cuisine;
+    }
+
     public List<Discountlist> getDiscountlist() {
         return discountlist;
     }
@@ -281,6 +308,20 @@ public class Restaurant_model {
 
     public void setDistance(String distance) {
         this.distance = distance;
+    }
+
+    public class Filtercuisine{
+
+        public String getSt_venue_cuisine() {
+            return st_venue_cuisine;
+        }
+
+        public void setSt_venue_cuisine(String st_venue_cuisine) {
+            this.st_venue_cuisine = st_venue_cuisine;
+        }
+
+        private String st_venue_cuisine;
+
     }
 
 
@@ -384,52 +425,7 @@ public class Restaurant_model {
             this.del_close_time_dinner = del_close_time_dinner;
         }
 
-      /*  private String inId;
-        private StLunchTime st_lunch_time;
-        private StDinnerTime st_dinner_time;
-        private Boolean st_lunch_time_lunch;
-        private Boolean st_dinner_time_dinner;
 
-        public String getInId() {
-            return inId;
-        }
-
-        public void setInId(String inId) {
-            this.inId = inId;
-        }
-
-        public StLunchTime getStLunchTime() {
-            return st_lunch_time;
-        }
-
-        public void setStLunchTime(StLunchTime stLunchTime) {
-            this.st_lunch_time = stLunchTime;
-        }
-
-        public StDinnerTime getStDinnerTime() {
-            return st_dinner_time;
-        }
-
-        public void setStDinnerTime(StDinnerTime stDinnerTime) {
-            this.st_dinner_time = stDinnerTime;
-        }
-
-        public Boolean getStLunchTimeLunch() {
-            return st_lunch_time_lunch;
-        }
-
-        public void setStLunchTimeLunch(Boolean stLunchTimeLunch) {
-            this.st_lunch_time_lunch = stLunchTimeLunch;
-        }
-
-        public Boolean getStDinnerTimeDinner() {
-            return st_dinner_time_dinner;
-        }
-
-        public void setStDinnerTimeDinner(Boolean stDinnerTimeDinner) {
-            this.st_dinner_time_dinner = stDinnerTimeDinner;
-        }
-*/
     }
 
 
@@ -470,54 +466,6 @@ public class Restaurant_model {
         public void setPick_close_time_dinner(String pick_close_time_dinner) {
             this.pick_close_time_dinner = pick_close_time_dinner;
         }
-
-       /* private String inId;
-        private StLunchTime st_lunch_time;
-        private StDinnerTime st_dinner_time;
-        private Boolean st_lunch_time_lunch;
-        private Boolean st_dinner_time_dinner;
-
-        public String getInId() {
-            return inId;
-        }
-
-        public void setInId(String inId) {
-            this.inId = inId;
-        }
-
-        public StLunchTime getStLunchTime() {
-            return st_lunch_time;
-        }
-
-        public void setStLunchTime(StLunchTime stLunchTime) {
-            this.st_lunch_time = stLunchTime;
-        }
-
-        public StDinnerTime getStDinnerTime() {
-            return st_dinner_time;
-        }
-
-        public void setStDinnerTime(StDinnerTime stDinnerTime) {
-            this.st_dinner_time = stDinnerTime;
-        }
-
-        public Boolean getStLunchTimeLunch() {
-            return st_lunch_time_lunch;
-        }
-
-        public void setStLunchTimeLunch(Boolean stLunchTimeLunch) {
-            this.st_lunch_time_lunch = stLunchTimeLunch;
-        }
-
-        public Boolean getStDinnerTimeDinner() {
-            return st_dinner_time_dinner;
-        }
-
-        public void setStDinnerTimeDinner(Boolean stDinnerTimeDinner) {
-            this.st_dinner_time_dinner = stDinnerTimeDinner;
-        }
-*/
-
 
 
     }

@@ -60,7 +60,7 @@ public class AllValidation {
 
     public static void myToast(Context mContext, String msg){
         try {
-            Toast.makeText(mContext,msg, Toast.LENGTH_LONG).show();
+            Toast.makeText(mContext,msg, Toast.LENGTH_SHORT).show();
         }catch (Exception e){
             e.printStackTrace();
         }

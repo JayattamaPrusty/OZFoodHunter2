@@ -67,7 +67,7 @@ public class Walkthrough extends AppCompatActivity {
                     }
                 });
             }
-        }, 500, 1000);
+        }, 100, 1500);
     }
 
 }

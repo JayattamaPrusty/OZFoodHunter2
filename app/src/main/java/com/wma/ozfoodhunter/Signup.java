@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.wma.ozfoodhunter.BeanClasses.Sign_Up_Model;
 import com.wma.ozfoodhunter.Utils.AllValidation;
+import com.wma.ozfoodhunter.Utils.MySharedPrefrencesData;
 import com.wma.ozfoodhunter.apimodule.API_Call_Retrofit;
 import com.wma.ozfoodhunter.apimodule.AllApiCalls;
 import com.wma.ozfoodhunter.apimodule.Apimethods;
@@ -30,7 +31,7 @@ import retrofit2.Response;
 
 public class Signup extends AppCompatActivity {
     String fname,lname,email,pass,mobile;
-
+    MySharedPrefrencesData mySharedPrefrencesData;
     Toolbar toolbar;
     ActionBar actionbar;
     Button signup;
@@ -48,6 +49,7 @@ public class Signup extends AppCompatActivity {
     protected void onCreate(Bundle bundle){
         super.onCreate(bundle);
         setContentView(R.layout.signup);
+        mySharedPrefrencesData=new MySharedPrefrencesData();
         apicalls=new AllApiCalls();
         edtFName=(EditText)findViewById(R.id.fname);
         edtLName=(EditText)findViewById(R.id.lname);
@@ -91,7 +93,7 @@ public class Signup extends AppCompatActivity {
     private void callApi() {
         Apimethods methods = API_Call_Retrofit.getretrofit(Signup.this).create(Apimethods.class);
       //  Sign_Up_Model task=new Sign_Up_Model(fname,lname,email,pass,mobile);
-        Call<Sign_Up_Model> call =methods.setSignup(fname,lname,email,pass,mobile);
+        Call<Sign_Up_Model> call =methods.setSignup(fname,lname,email,pass,mobile,"123");
         Log.d("url","url="+call.request().url().toString());
 
         call.enqueue(new Callback<Sign_Up_Model>() {
@@ -103,11 +105,11 @@ public class Signup extends AppCompatActivity {
                signUpModel=response.body();
                if(signUpModel.getStatus().equalsIgnoreCase("Success"))
                {
+                   mySharedPrefrencesData.setReferal(Signup.this,signUpModel.getInfo().getReferal());
+                   mySharedPrefrencesData.setUser_Id(Signup.this,signUpModel.getInfo().getUserId());
                    Toast.makeText(getApplicationContext(),"Submit successfully",Toast.LENGTH_LONG).show();
                    Intent intent = new Intent(Signup.this, Login.class);
                    startActivity(intent);
-
-
                }else
                {
                    Toast.makeText(getApplicationContext(),"invalid",Toast.LENGTH_LONG).show();

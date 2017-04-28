@@ -8,9 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.afollestad.sectionedrecyclerview.SectionedRecyclerViewAdapter;
+import com.wma.ozfoodhunter.BeanClasses.Extrasdetail;
 import com.wma.ozfoodhunter.BeanClasses.RestaurantItemBeans;
 import com.wma.ozfoodhunter.R;
 import com.wma.ozfoodhunter.Widgets.Constants;
@@ -25,15 +30,16 @@ public class RestaurantSectionAdapter extends SectionedRecyclerViewAdapter<Recyc
 
 
     public LocalBroadcastManager broadcaster;
-    private ArrayList<RestaurantItemBeans> itemlist;
+    private ArrayList<Extrasdetail> itemlist;
 
     String listType="";
     private Context ctx;
     Activity activity;
     float total=0;
     String totalprice;
+    private  RadioButton lastCheckedRB = null;
 
-    public RestaurantSectionAdapter(Context context, ArrayList<RestaurantItemBeans> itemlist) {
+    public RestaurantSectionAdapter(Context context, ArrayList<Extrasdetail> itemlist) {
         this.itemlist = itemlist;
         ctx = context;
         this.listType = listType;
@@ -44,13 +50,13 @@ public class RestaurantSectionAdapter extends SectionedRecyclerViewAdapter<Recyc
 
     @Override
     public int getSectionCount() {
-        return 1;
+        return itemlist.size();
     }
 
     @Override
     public int getItemCount(int section) {
 
-        return 3;
+        return itemlist.get(section).getExtras().size();
 
     }
 
@@ -58,9 +64,8 @@ public class RestaurantSectionAdapter extends SectionedRecyclerViewAdapter<Recyc
     @Override
     public void onBindHeaderViewHolder(RecyclerView.ViewHolder holder, int section) {
         ItemViewHolder itemViewHolder = (ItemViewHolder) holder;
-        String c= Constants.cuisines[section];
- //       itemViewHolder.titlesection.setText(c);
-
+   //     String c= Constants.cuisines[section];
+        itemViewHolder.titlesection.setText(itemlist.get(section).getType());
     }
 
 
@@ -69,12 +74,38 @@ public class RestaurantSectionAdapter extends SectionedRecyclerViewAdapter<Recyc
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int section, final int relativePosition, int absolutePosition) {
 
         ItemViewHolder itemViewHolder = (ItemViewHolder) holder;
-        String c= Constants.cuisines[relativePosition];
-        itemViewHolder.itemchild.setText(c);
+        //       String c= Constants.cuisines[relativePosition];
+        String flag_mandatory = itemlist.get(section).getFlgMandatory();
+        if (flag_mandatory.equalsIgnoreCase("1"))
+        {
+
+            itemViewHolder.radiobtnlay.setVisibility(View.VISIBLE);
+            itemViewHolder.checkboxlay.setVisibility(View.GONE);
+            itemViewHolder.radioButton.setText(itemlist.get(section).getExtras().get(relativePosition).getAttributeName());
+            itemViewHolder.priceradio.setText( itemlist.get(section).getExtras().get(relativePosition).getAttributePrice());
+
+           itemViewHolder.radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+               @Override
+               public void onCheckedChanged(RadioGroup group, int radio) {
+
+                   RadioButton checked_rb = (RadioButton) group.findViewById(radio);
+                   if (lastCheckedRB != null) {
+                       lastCheckedRB.setChecked(false);
+                   }
+                   //store the clicked radiobutton
+                   lastCheckedRB = checked_rb;
+
+               }
+           });
+
+        } else
+        {    itemViewHolder.radiobtnlay.setVisibility(View.GONE);
+            itemViewHolder.checkboxlay.setVisibility(View.VISIBLE);
+            itemViewHolder.itemchild.setText(itemlist.get(section).getExtras().get(relativePosition).getAttributeName());
+            itemViewHolder.price.setText( itemlist.get(section).getExtras().get(relativePosition).getAttributePrice());
+        }
 
     }
-
-
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
@@ -90,16 +121,22 @@ public class RestaurantSectionAdapter extends SectionedRecyclerViewAdapter<Recyc
    // ItemViewHolder Class for Items in each Section
     public static class ItemViewHolder extends RecyclerView.ViewHolder {
 
-       TextView titlesection,price;
+       TextView titlesection,price,priceradio;
        CheckBox itemchild;
+       RadioButton radioButton;
+       LinearLayout checkboxlay,radiobtnlay;
+       RadioGroup radioGroup;
 
         public ItemViewHolder(View itemView) {
             super(itemView);
-     //       titlesection=(TextView)itemView.findViewById(R.id.itemtitle);
-            price=(TextView)itemView.findViewById(R.id.price);
+            checkboxlay=(LinearLayout)itemView.findViewById(R.id.card_view);
+            radiobtnlay=(LinearLayout)itemView.findViewById(R.id.flagradio);
+            titlesection=(TextView)itemView.findViewById(R.id.itemsectionname);
             itemchild=(CheckBox) itemView.findViewById(R.id.check);
-
-
+            price=(TextView)itemView.findViewById(R.id.price);
+            radioButton=(RadioButton)itemView.findViewById(R.id.radio);
+            radioGroup=(RadioGroup) itemView.findViewById(R.id.radiogrp);
+            priceradio=(TextView)itemView.findViewById(R.id.price1);
         }
     }
 

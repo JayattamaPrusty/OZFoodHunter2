@@ -11,7 +11,7 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:id="@+id/card_view"
-    android:padding="10dp"
+    android:padding="5dp"
     android:gravity="center_vertical"
     android:weightSum="1"
     >
@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:text="Totila Wrap"
         android:layout_weight=".7"
-        android:textSize="18sp"
+        android:textSize="14sp"
         android:checked="false"
         android:id="@+id/check"
         android:buttonTint="#71dbe9"/>
@@ -28,15 +28,50 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight=".3"
-        android:textSize="18sp"
+        android:textSize="14sp"
         android:text="2.5"
         android:gravity="center"
-        android:id="@id/price"/>
+        android:id="@+id/price"/>
     </LinearLayout>
-    <View
+    <LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:id="@+id/flagradio"
+    android:padding="5dp"
+    android:gravity="center_vertical"
+    android:visibility="gone"
+    android:weightSum="1"
+    >
+
+    <RadioGroup
+            android:id="@+id/radiogrp"
+           android:layout_weight=".7"
+           android:layout_width="0dp"
+           android:layout_height="wrap_content">
+        <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Totila Wrap"
+        android:textSize="14sp"
+        android:checked="false"
+        android:id="@+id/radio"
+        android:buttonTint="#71dbe9"/>
+    </RadioGroup>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight=".3"
+        android:textSize="14sp"
+        android:text="2.5"
+        android:gravity="center"
+        android:id="@+id/price1"/>
+    </LinearLayout>
+   <!-- <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/grey"/>
+        android:background="@color/grey"/>-->
 </LinearLayout>
 
 

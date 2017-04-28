@@ -5,9 +5,11 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.LayerDrawable;
+import android.os.CountDownTimer;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,8 +32,11 @@ import com.wma.ozfoodhunter.Reviews;
 import com.wma.ozfoodhunter.Utils.Commons;
 import com.wma.ozfoodhunter.Widgets.Constants;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by mathivanan on 12/02/17.
@@ -43,10 +48,12 @@ public class Restaurant_Adapter extends RecyclerView.Adapter<Restaurant_Adapter.
     private List<Restaurant_model> restaurant_modelList;
     private Context ctx;
     private OnItemClickListener mOnItemClickListener;
+    private  int flagbtn;
 
-    public Restaurant_Adapter(Context ctx, List<Restaurant_model> restaurant_modelList) {
+    public Restaurant_Adapter(Context ctx, List<Restaurant_model> restaurant_modelList,int flagbtn) {
         this.ctx = ctx;
         this.restaurant_modelList = restaurant_modelList;
+        this.flagbtn=flagbtn;
     }
 
 
@@ -64,12 +71,13 @@ public class Restaurant_Adapter extends RecyclerView.Adapter<Restaurant_Adapter.
         public RatingBar ratingBar;
         public ImageView image;
         public LinearLayout lyt_parent;
-        Button offerzone;
+        Button offerzone,booktable;
+        TextView timer;
 
         public ViewHolder(View v) {
             super(v);
             ratingBar=(RatingBar)v.findViewById(R.id.rating);
-            image = (ImageView) v.findViewById(R.id.img);
+            image = (ImageView) v.findViewById(R.id.image);
             restaurant_name = (TextView) v.findViewById(R.id.restaurant_name);
             location_add=(TextView)v.findViewById(R.id.location);
             delivery=(TextView)v.findViewById(R.id.delivery);
@@ -79,6 +87,8 @@ public class Restaurant_Adapter extends RecyclerView.Adapter<Restaurant_Adapter.
             reviews = (TextView) v.findViewById(R.id.reviews);
             lyt_parent = (LinearLayout) v.findViewById(R.id.lyt_parent);
             offerzone = (Button) v.findViewById(R.id.offerzone);
+            booktable = (Button) v.findViewById(R.id.book_table);
+            timer = (TextView) v.findViewById(R.id.timer);
         }
     }
 
@@ -98,17 +108,84 @@ public class Restaurant_Adapter extends RecyclerView.Adapter<Restaurant_Adapter.
 
         final Restaurant_model restaurant_model=restaurant_modelList.get(position);
         Commons.in_restaurant_id=restaurant_model.getInRestaurantId();
-//        Glide.with(ctx).load(restaurant_model.getImage()).into(holder.image);
+        String imageurl=restaurant_model.getImage();
+        imageurl=imageurl.replace(" ","%20");
+        imageurl=imageurl.replace("\\\\","/");
+        imageurl=imageurl.replace("\\","/");
+        restaurant_model.setImage(imageurl);
+
+        Log.d("imageurl:",imageurl);
+        Glide.with(ctx)
+                .load(imageurl)
+                .fitCenter()
+                .into(holder.image);
+       Calendar calander = Calendar.getInstance();
+       SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
+
+       String  time = simpleDateFormat.format(calander.getTime());
+
+
+//        Long tsLong = System.currentTimeMillis()/1000;
+//        String ts = tsLong.toString();
+
+        CountDownTimer timer=new CountDownTimer(600000, 1000) {
+            public void onTick(long millisUntilFinished) {
+                holder.timer.setText(""+String.format("%d:%d:%d",
+                        TimeUnit.MILLISECONDS.toHours(millisUntilFinished),
+                        TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished),
+                        TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) -
+                                TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.
+                                        toMinutes(millisUntilFinished))));
+            }
+
+            public void onFinish() {
+                holder.timer.setVisibility(View.GONE);
+            }
+        };
+        timer.start();
+
         holder.restaurant_name.setText(restaurant_model.getStRestaurantName());
         holder.location_add.setText(restaurant_model.getStStreetAddress()+","+restaurant_model.getStSuburb());
-        String lunch=restaurant_model.getDeliverySchedule().getDel_start_time_lunch()+"-"+restaurant_model.getDeliverySchedule().getDel_close_time_lunch();
-        String dinner=restaurant_model.getDeliverySchedule().getDel_start_time_dinner()+"-"+restaurant_model.getDeliverySchedule().getDel_close_time_dinner();
-        holder.delivery.setText("Del :"+lunch+","+dinner);
-        holder.min_delivery.setText("Min delivery :"+"$"+restaurant_model.getStMinOrder());
-        String lunch_pick=restaurant_model.getPickupSchedule().getPick_start_time_lunch()+"-"+restaurant_model.getPickupSchedule().getPick_close_time_lunch();
-        String dinner_pick=restaurant_model.getPickupSchedule().getPick_start_time_dinner()+"-"+restaurant_model.getPickupSchedule().getPick_close_time_dinner();
-        holder.pick.setText("Pick :"+lunch_pick+","+dinner_pick);
-        holder.delivery_fee.setText("Delivery Fee:"+"$"+restaurant_model.getStDeliveryCharge());
+        if(flagbtn==1)
+        {  if((restaurant_model.getDeliverySchedule().getDel_start_time_lunch() == null) && restaurant_model.getDeliverySchedule().getDel_close_time_lunch() == null)
+            {
+                holder.delivery.setText("Del :"+" " );
+            }else
+            {
+                String lunch = restaurant_model.getDeliverySchedule().getDel_start_time_lunch() + "-" + restaurant_model.getDeliverySchedule().getDel_close_time_lunch();
+                String dinner = restaurant_model.getDeliverySchedule().getDel_start_time_dinner() + "-" + restaurant_model.getDeliverySchedule().getDel_close_time_dinner();
+                holder.delivery.setText("Del :" + lunch + "," + dinner);
+            }
+            holder.min_delivery.setText("Min delivery :" + "$" + restaurant_model.getStMinOrder());
+     //       String lunch_pick = restaurant_model.getPickupSchedule().getPick_start_time_lunch() + "-" + restaurant_model.getPickupSchedule().getPick_close_time_lunch();
+    //        String dinner_pick = restaurant_model.getPickupSchedule().getPick_start_time_dinner() + "-" + restaurant_model.getPickupSchedule().getPick_close_time_dinner();
+            holder.pick.setText(" ");
+            holder.delivery_fee.setText("Delivery Fee:" + "$" + restaurant_model.getStDeliveryCharge());
+        }else
+        {
+            holder.delivery.setText(" ");
+            holder.min_delivery.setText("Min delivery :" + " Any ");
+
+            if((restaurant_model.getPickupSchedule().getPick_start_time_lunch() == null) && restaurant_model.getPickupSchedule().getPick_close_time_lunch() == null)
+            {
+                holder.pick.setText("Pick :"+" " );
+            }else
+            {
+                String lunch_pick = restaurant_model.getPickupSchedule().getPick_start_time_lunch() + "-" + restaurant_model.getPickupSchedule().getPick_close_time_lunch();
+                String dinner_pick = restaurant_model.getPickupSchedule().getPick_start_time_dinner() + "-" + restaurant_model.getPickupSchedule().getPick_close_time_dinner();
+                holder.pick.setText("Pick :" + lunch_pick + "," + dinner_pick);
+            }
+
+            holder.delivery_fee.setText(" Free delivery ");
+        }
+        if(restaurant_model.getAgree_table_booking().equalsIgnoreCase("0")){
+
+            holder.booktable.setVisibility(View.GONE);
+
+        }else{
+            holder.booktable.setVisibility(View.VISIBLE);
+        }
+
         final float ratingfloat=(float)restaurant_model.getReview().getRating();
         holder.ratingBar.setRating(ratingfloat);
         holder.reviews.setText("("+restaurant_model.getReview().getTotalReview()+")"+"Reviews");

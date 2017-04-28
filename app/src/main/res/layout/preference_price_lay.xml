@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/card_view_checkpref"
+        android:padding="5dp"
+        android:gravity="center_vertical"
+        android:weightSum="1"
+        >
+        <CheckBox
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Totila Wrap"
+            android:layout_weight=".7"
+            android:textSize="14sp"
+            android:checked="false"
+            android:id="@+id/checkpreference"
+            android:buttonTint="#71dbe9"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".3"
+            android:textSize="14sp"
+            android:text="2.5"
+            android:gravity="center"
+            android:id="@+id/preferencestprice"/>
+    </LinearLayout>
+
+</LinearLayout>

@@ -66,6 +66,9 @@
             android:layout_height="wrap_content"
             android:fitsSystemWindows="true"
             android:id="@+id/recyclerView_restaurant_details"
+            android:nestedScrollingEnabled="false"
+            android:scrollingCache="false"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
            />
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

@@ -3,54 +3,18 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="#eaebed"
+    android:background="#dbdcdf"
+    android:layout_margin="10dp"
     >
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#aeabab"/>
 
- <!--   <com.wma.ozfoodhunter.fonts.TextView_Regular
+    <com.wma.ozfoodhunter.fonts.TextView_Regular
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/itemtitle"
+        android:id="@+id/itemsectionname"
         android:text="Bun"
         android:layout_margin="10dp"
         android:textSize="18dp"
-        android:textColor="#161515"/>-->
+        android:textColor="#161515"/>
 
-    <RadioGroup
-        android:layout_margin="10dp"
-        android:id="@+id/radioGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-
-        <RadioButton
-        android:id="@+id/radio1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:checked="true"
-        android:text="Android"
-        android:backgroundTint="@color/black"
-        android:buttonTint="@color/black"/>
-        <RadioButton
-        android:id="@+id/radio2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Android"
-        android:backgroundTint="@color/black"
-        android:buttonTint="@color/black"/>
-        <RadioButton
-        android:id="@+id/radio3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Android"
-        android:backgroundTint="@color/black"
-        android:buttonTint="@color/black"/>
-    </RadioGroup>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#aeabab"/>
 
 </LinearLayout>

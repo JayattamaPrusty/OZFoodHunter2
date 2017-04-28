@@ -57,11 +57,13 @@
         <activity
             android:name=".Reviews"
             android:theme="@style/AppTheme.NoActionBar" />
-       <!-- <activity
+        <activity
             android:name=".SplashTransparent"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">-->
-        <activity android:name=".SplashTransparent"
-            android:theme="@style/Theme.AppCompat.Translucent">
+            android:theme="@style/Theme.AppCompat.Translucent" />
+        <activity
+            android:name=".Splash"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -76,7 +78,9 @@
         <activity android:name=".Address_list" />
         <activity android:name=".RestaurantDetailsNew" />
         <!-- <activity android:name=".AndroidAnimButtonsActivity"></activity> -->
-      <!--  <activity android:name=".SplashTransparent"></activity>-->
+        <!-- <activity android:name=".SplashTransparent"></activity> -->
+        <activity android:name=".BookTable" />
+       <!-- <activity android:name=".Loginsecond"></activity>-->
     </application>
 
 </manifest>

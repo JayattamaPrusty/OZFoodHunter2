@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="250dp">
+    android:layout_height="wrap_content">
 
     <RelativeLayout
         android:layout_weight=".4"
@@ -47,31 +47,31 @@
             android:layout_margin="10dp">
 
             <com.wma.ozfoodhunter.fonts.BT_Regular
-                android:id="@+id/pickup_btn"
+                android:id="@+id/delivery_btn"
                 android:layout_width="90dp"
                 android:layout_height="30dp"
                 android:layout_alignParentLeft="true"
-                android:background="@drawable/rectangle_half_left_transparent"
+                android:background="@drawable/rectangle_edge_half_color"
                 android:gravity="center_vertical"
-                android:text="Pickup"
+                android:text="Delivery"
                 android:textAlignment="center"
                 android:textAllCaps="false"
-                android:textColor="@color/button"
+                android:textColor="@color/white"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
             <com.wma.ozfoodhunter.fonts.BT_Regular
 
-                android:id="@+id/delivery_btn"
+                android:id="@+id/pickup_btn"
                 android:layout_width="90dp"
                 android:layout_height="30dp"
-                android:layout_toRightOf="@+id/pickup_btn"
-                android:background="@drawable/search_rectangle_right"
+                android:layout_toRightOf="@+id/delivery_btn"
+                android:background="@drawable/rectanle_edge_half_transparent"
                 android:gravity="center_vertical"
-                android:text="Delivery"
+                android:text="Pick up"
                 android:textAlignment="center"
                 android:textAllCaps="false"
-                android:textColor="@color/black"
+                android:textColor="@color/button"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
@@ -96,7 +96,7 @@
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:layout_alignParentBottom="true"
-            android:background="#d1d1d1"
+            android:background="@color/grey"
             android:gravity="center"
             android:text="List of Restaurants found at your location"
             android:textColor="@color/colorPrimary" />

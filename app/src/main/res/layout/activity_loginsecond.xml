@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_loginsecond"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_back"
+    tools:context="com.wma.ozfoodhunter.Loginsecond">
+
+    <ImageView
+        android:id="@+id/logofoodleft"
+        android:layout_width="140dp"
+        android:layout_height="100dp"
+        android:src="@drawable/pizza_icon"
+        android:layout_marginTop="200dp"/>
+    <ImageView
+        android:id="@+id/logofood"
+        android:layout_width="190dp"
+        android:layout_height="87dp"
+        android:src="@drawable/logo_icon"
+        android:layout_toRightOf="@+id/logofoodleft"
+        android:layout_marginTop="210dp"/>
+
+    <ImageView
+        android:id="@+id/foodbottomlft"
+        android:layout_width="150dp"
+        android:layout_height="110dp"
+        android:src="@drawable/left_bottom"
+        android:layout_alignParentBottom="true"/>
+    <ImageView
+        android:id="@+id/foodbottomright"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:src="@drawable/right_bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"/>
+
+
+
+</RelativeLayout>

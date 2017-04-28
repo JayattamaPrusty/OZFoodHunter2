@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/child_layout"
+    android:layout_margin="8dp"
     >
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/light_gray"/>
-
     <LinearLayout
        android:orientation="horizontal"
        android:layout_width="match_parent"
@@ -19,25 +16,18 @@
        android:padding="5dp"
        android:id="@+id/card_view"
        android:gravity="center_vertical"
-       android:background="#e9fce4d5"
         >
-       <com.wma.ozfoodhunter.fonts.TextView_Regular
+       <com.wma.ozfoodhunter.fonts.TextView_Bold
            android:id="@+id/txt1"
            android:layout_width="0dp"
            android:layout_height="wrap_content"
-           android:layout_weight=".4"
+           android:layout_weight=".7"
            android:text="khorma"
            android:textSize="14sp"
+           android:textStyle="bold"
            android:textColor="@color/black"/>
-       <com.wma.ozfoodhunter.fonts.TextView_Regular
-           android:id="@+id/txt2"
-           android:layout_width="0dp"
-           android:layout_height="wrap_content"
-           android:layout_weight=".3"
-           android:text="Large"
-           android:textSize="14sp"
-           android:textColor="@color/black"/>
-       />
+
+
        <com.wma.ozfoodhunter.fonts.TextView_Regular
            android:id="@+id/txt3"
            android:layout_width="0dp"
@@ -45,27 +35,123 @@
            android:layout_weight=".2"
            android:text="8.90"
            android:textSize="14sp"
+           android:gravity="right"
            android:textColor="@color/black"/>
        />
        <ImageView
            android:layout_width="0dp"
            android:layout_height="wrap_content"
            android:layout_weight=".1"
-           android:src="@drawable/plus_icon"
+           android:src="@drawable/plusgreen"
            android:textColor="@color/black" />
        />
+    </LinearLayout>
 
-
-   </LinearLayout>
-
-
-    <com.wma.ozfoodhunter.fonts.TextView_Regular
+    <com.wma.ozfoodhunter.fonts.TextView_Light
         android:layout_margin="5dp"
         android:id="@+id/child_text"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text=""
         android:textColor="@color/black"
+        android:textSize="10sp"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height=".5dp"
+        android:background="@color/light_gray"/>
+</LinearLayout>
+<!--<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/child_layout"
+    android:layout_marginTop="8dp"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    >
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/card_view"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:padding="8dp"
+        android:background="#e6e9f7"
+        android:weightSum="1">
+
+        <com.wma.ozfoodhunter.fonts.TextView_Bold
+                android:id="@+id/txt1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="khorma"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/pricerecyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </android.support.v7.widget.RecyclerView>
+
+        <com.wma.ozfoodhunter.fonts.TextView_Light
+            android:id="@+id/child_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            />
+
+       &lt;!&ndash; <RelativeLayout
+            android:gravity="right"
+            android:layout_weight="0.4"
+            android:layout_marginLeft="5dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+
+            <com.wma.ozfoodhunter.fonts.TextView_Regular
+                android:id="@+id/txt2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight=".25"
+                android:text="Large"
+                android:textSize="14sp"
+                android:padding="2dp"
+                android:textColor="@color/black"/>
+            <com.wma.ozfoodhunter.fonts.TextView_Regular
+                android:layout_toRightOf="@+id/txt2"
+                android:id="@+id/txt3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8.90"
+                android:padding="2dp"
+                android:textSize="14sp"
+                android:textColor="@color/black"/>
+            <ImageView
+                android:layout_toRightOf="@+id/txt3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/plusgreen"
+                 />
+            />
+
+        </RelativeLayout>&ndash;&gt;
+
+    </LinearLayout>
+
+    <com.wma.ozfoodhunter.fonts.TextView_Regular
+        android:visibility="gone"
+        android:layout_margin="5dp"
+        android:id="@+id/child_text1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=" "
+        android:textColor="@color/black"
         android:textSize="14sp"/>
 
-</LinearLayout>
+</LinearLayout>-->

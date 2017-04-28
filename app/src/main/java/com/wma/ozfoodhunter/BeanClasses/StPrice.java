@@ -2,7 +2,9 @@
 package com.wma.ozfoodhunter.BeanClasses;
 
 
-public class StPrice {
+import java.io.Serializable;
+
+public class StPrice implements Serializable{
 
     private String id;
     private String price_item;

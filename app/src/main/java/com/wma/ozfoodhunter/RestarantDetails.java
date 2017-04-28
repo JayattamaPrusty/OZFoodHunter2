@@ -1,5 +1,6 @@
 package com.wma.ozfoodhunter;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -29,6 +30,7 @@ import com.wma.ozfoodhunter.BeanClasses.PostCode_Model;
 import com.wma.ozfoodhunter.BeanClasses.Restaurant_Dish_Model;
 import com.wma.ozfoodhunter.Utils.AllValidation;
 import com.wma.ozfoodhunter.Utils.Commons;
+import com.wma.ozfoodhunter.Utils.LoaderDiloag;
 import com.wma.ozfoodhunter.Widgets.Constants;
 import com.wma.ozfoodhunter.apimodule.API_Call_Retrofit;
 import com.wma.ozfoodhunter.apimodule.Apimethods;
@@ -57,6 +59,7 @@ public class RestarantDetails extends AppCompatActivity implements View.OnClickL
     int c=0;
     String name,image,cuisine_name,res_id,min_order,delivery_fee;
     Restaurant_Dish_Model restmodel;
+    ProgressDialog mProgressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,7 +133,14 @@ public class RestarantDetails extends AppCompatActivity implements View.OnClickL
         Apimethods methods = API_Call_Retrofit.getretrofit(RestarantDetails.this).create(Apimethods.class);
 
         Call<Restaurant_Dish_Model> call =methods.setRes_dish(res_id);
+     //   Call<Restaurant_Dish_Model> call =methods.setRes_dish("37");
         Log.d("url","url="+call.request().url().toString());
+        final LoaderDiloag loaderDiloag = new LoaderDiloag(this);
+        loaderDiloag.displayDiloag();
+       /* mProgressDialog = new ProgressDialog(this);
+        mProgressDialog.setIndeterminate(true);
+        mProgressDialog.setMessage("Loading...");
+        mProgressDialog.show();*/
 
         call.enqueue(new Callback<Restaurant_Dish_Model>() {
             @Override
@@ -146,9 +156,16 @@ public class RestarantDetails extends AppCompatActivity implements View.OnClickL
                     setData();
                     adapter = new RestaurantDetailsAdapter(parentDishArrayList,RestarantDetails.this);
                     recyclerView.setAdapter(adapter);
+                    loaderDiloag.dismissDiloag();
+                    /*if (mProgressDialog.isShowing())
+                        mProgressDialog.dismiss();*/
                 }else
                 {
+                    loaderDiloag.dismissDiloag();
+                    /*if (mProgressDialog.isShowing())
+                        mProgressDialog.dismiss();*/
                     AllValidation.myToast(RestarantDetails.this,"no api call");
+
                 }
 
             }
@@ -176,27 +193,27 @@ public class RestarantDetails extends AppCompatActivity implements View.OnClickL
 
     private void setData() {
       //  childDishArrayList.add(new Dishdetail(restmodel.getOffers()));
+        int size=restmodel.getOffers().size();
 
-
-            childDishArrayList.add(new Dishdetail("",
-                    "",
-                    "$"+restmodel.getOffers().get(0).getFirstOfferValue()+"% off 1st time",
-                    null,
-                    "",
-                    "",
-                    null
-                    ));
-            childDishArrayList.add(new Dishdetail("",
-                    "",
-                    "$"+restmodel.getOffers().get(1).get2ndOfferValue()+"th free",
-                    null,
-                    "",
-                    "",
-                    null
-                    ));
-
-        parentDishArrayList.add(0,new Dishitem("Special offers",childDishArrayList));
-
+         if(size>0) {
+             childDishArrayList.add(new Dishdetail("",
+                     "",
+                     "$" + restmodel.getOffers().get(0).getFirstOfferValue() + "% off 1st time",
+                     null,
+                     "",
+                     "",
+                     null
+             ));
+             childDishArrayList.add(new Dishdetail("",
+                     "",
+                     "$" + restmodel.getOffers().get(0).get2ndOfferValue() + "th free",
+                     null,
+                     "",
+                     "",
+                     null
+             ));
+             parentDishArrayList.add(0, new Dishitem("Special offers", childDishArrayList));
+         }
 
         for(int i=0;i<restmodel.getDishitems().size();i++)
         {
@@ -214,7 +231,6 @@ public class RestarantDetails extends AppCompatActivity implements View.OnClickL
 
             parentDishArrayList.add(new Dishitem(restmodel.getDishitems().get(i).getCuisineName(), childDishArrayList));
         }
-
 
     }
 
@@ -249,6 +265,7 @@ public class RestarantDetails extends AppCompatActivity implements View.OnClickL
                 if(c%2 == 1){
                     book_table.setBackgroundResource(R.drawable.rectangle_edge);
                     book_table.setTextColor(getResources().getColor(R.color.white));
+                    startActivity(new Intent(RestarantDetails.this,BookTable.class));
                 }else{
                     book_table.setBackgroundResource(R.drawable.rectangle_white);
                     book_table.setTextColor(getResources().getColor(R.color.black));

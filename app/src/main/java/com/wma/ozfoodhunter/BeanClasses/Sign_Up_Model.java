@@ -153,32 +153,59 @@ public class Sign_Up_Model implements Serializable {
 
 
     public class Info {
-        private String user_id;
-        private String user_email;
-        private String mobile;
+        private String in_user_id;
+        private String st_user_email;
+        private String st_mobile;
+        private String admin_first_name;
+        private String admin_last_name;
+        private String referal;
 
         public String getUserId() {
-            return user_id;
+            return in_user_id;
         }
 
         public void setUserId(String userId) {
-            this.user_id = userId;
+            this.in_user_id = userId;
         }
 
         public String getUserEmail() {
-            return user_email;
+            return st_user_email;
         }
 
         public void setUserEmail(String userEmail) {
-            this.user_email = userEmail;
+            this.st_user_email = userEmail;
         }
 
         public String getMobile() {
-            return mobile;
+            return st_mobile;
         }
 
         public void setMobile(String mobile) {
-            this.mobile = mobile;
+            this.st_mobile = mobile;
+        }
+
+        public String getReferal() {
+            return referal;
+        }
+
+        public void setReferal(String referal) {
+            this.referal = referal;
+        }
+
+        public String getAdmin_last_name() {
+            return admin_last_name;
+        }
+
+        public void setAdmin_last_name(String admin_last_name) {
+            this.admin_last_name = admin_last_name;
+        }
+
+        public String getAdmin_first_name() {
+            return admin_first_name;
+        }
+
+        public void setAdmin_first_name(String admin_first_name) {
+            this.admin_first_name = admin_first_name;
         }
     }
 

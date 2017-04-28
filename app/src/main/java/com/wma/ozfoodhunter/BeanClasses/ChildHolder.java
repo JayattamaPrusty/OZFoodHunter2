@@ -1,5 +1,7 @@
 package com.wma.ozfoodhunter.BeanClasses;
 
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -7,6 +9,7 @@ import android.widget.TextView;
 import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup;
 import com.thoughtbot.expandablerecyclerview.viewholders.ChildViewHolder;
 import com.wma.ozfoodhunter.R;
+import com.wma.ozfoodhunter.RestarantDetails;
 import com.wma.ozfoodhunter.Widgets.Constants;
 
 /**
@@ -14,15 +17,18 @@ import com.wma.ozfoodhunter.Widgets.Constants;
  */
 public class ChildHolder extends ChildViewHolder {
 
-    public TextView childdishname,childitemsize,price,child_text;
-    public LinearLayout childlay;
+    public TextView childdishname,child_text,childspecial,price;
+
+    public RecyclerView pricerecycle;
+    public LinearLayout linearLayout;
     public ChildHolder(View itemView) {
         super(itemView);
         childdishname=(TextView)itemView.findViewById(R.id.txt1);
-        childitemsize=(TextView)itemView.findViewById(R.id.txt2);
-        price=(TextView)itemView.findViewById(R.id.txt3);
         child_text=(TextView)itemView.findViewById(R.id.child_text);
-        childlay=(LinearLayout)itemView.findViewById(R.id.card_view);
+        price=(TextView)itemView.findViewById(R.id.txt3);
+ //       childspecial=(TextView)itemView.findViewById(R.id.child_text1);
+        linearLayout=(LinearLayout)itemView.findViewById(R.id.card_view);
+//        pricerecycle=(RecyclerView)itemView.findViewById(R.id.pricerecyclerview);
     }
 
 

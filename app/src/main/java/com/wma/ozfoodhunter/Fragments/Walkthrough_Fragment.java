@@ -2,6 +2,7 @@ package com.wma.ozfoodhunter.Fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 
 import com.wma.ozfoodhunter.Login;
 import com.wma.ozfoodhunter.R;
+import com.wma.ozfoodhunter.Splash;
 import com.wma.ozfoodhunter.Walkthrough;
 
 /**
@@ -63,14 +65,14 @@ public class Walkthrough_Fragment extends Fragment {
                 imageView.setImageResource(R.drawable.walkthrough_page4);
                 textView.setText("Grab It");
                 textView1.setText("Grab it \nonce we deliver at your doorstep");
-                skip.setVisibility(View.VISIBLE);
-                skip.setOnClickListener(new View.OnClickListener() {
+                new Handler().postDelayed(new Runnable() {
                     @Override
-                    public void onClick(View view) {
-                        startActivity(new Intent(getActivity(),Login.class));
+                    public void run() {
+                        Intent intent = new Intent(getActivity(),Login.class);
+                        startActivity(intent);
                         getActivity().finish();
                     }
-                });
+                }, 2000);
             }
         }
 

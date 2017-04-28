@@ -7,8 +7,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:layout_marginBottom="20dp"
     tools:context="com.wma.ozfoodhunter.Restaurant_ChildAdapter_Activity">
-    <!--<android.support.design.widget.AppBarLayout
+   <!-- <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -26,26 +27,46 @@
                 android:background="?attr/colorPrimary"
                 android:layout_gravity="center"
                 android:gravity="center">
-                <ImageView
+                <TextView
                     android:id="@+id/title"
                     android:layout_gravity="center"
                     android:textColor="@color/white"
                     android:gravity="center"
+                    android:text="Make your Choice"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:textSize="18dp"
+                    android:textStyle="bold"/>
                 &lt;!&ndash;<include layout="@layout/toolbar_title"/>&ndash;&gt;
             </android.support.v7.widget.Toolbar>
 
         </FrameLayout>
 
-    </android.support.design.widget.AppBarLayout>
--->
+    </android.support.design.widget.AppBarLayout>-->
+
+
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:id="@+id/recyclerView_child_price">
+    </android.support.v7.widget.RecyclerView>
+    <View
+        android:id="@+id/viewline"
+        android:layout_width="match_parent"
+        android:layout_height=".5dp"
+        android:background="@color/light_gray"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_below="@+id/recyclerView_child_price"/>
+    <android.support.v7.widget.RecyclerView
+        android:layout_below="@+id/viewline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_above="@+id/continue_btn"
         android:id="@+id/recyclerView_child_section">
     </android.support.v7.widget.RecyclerView>
+
     <com.wma.ozfoodhunter.fonts.BT_Regular
         android:id="@+id/continue_btn"
         android:layout_width="250dp"
@@ -57,8 +78,13 @@
         android:textSize="16dp"
         android:gravity="center_vertical"
         android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/view"
         android:layout_margin="10dp"
         android:textAllCaps="false"
         />
+    <View
+        android:id="@+id/view"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
 </RelativeLayout>

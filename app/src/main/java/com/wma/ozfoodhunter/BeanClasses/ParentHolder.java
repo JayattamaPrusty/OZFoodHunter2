@@ -3,6 +3,7 @@ package com.wma.ozfoodhunter.BeanClasses;
 import android.graphics.Color;
 import android.util.Log;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup;
@@ -10,15 +11,18 @@ import com.thoughtbot.expandablerecyclerview.viewholders.GroupViewHolder;
 import com.wma.ozfoodhunter.R;
 import com.wma.ozfoodhunter.Widgets.Constants;
 
+
 /**
  * Created by Jayattama on 15-Mar-17.
  */
 public class ParentHolder extends GroupViewHolder {
 
     public TextView parent_dish_name;
+    RelativeLayout parentlay;
     public ParentHolder(View itemView) {
         super(itemView);
         parent_dish_name=(TextView)itemView.findViewById(R.id.parent_dish_name);
+        parentlay=(RelativeLayout) itemView.findViewById(R.id.relativelayparent);
     }
 
 
@@ -26,7 +30,7 @@ public class ParentHolder extends GroupViewHolder {
     public void expand() {
 
         parent_dish_name.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.collapse_arrow, 0);
-        parent_dish_name.setTextColor(Color.GREEN);
+        parent_dish_name.setTextColor(0xff7a07cc);
         Log.i("Adapter", "expand");
     }
 
@@ -35,6 +39,8 @@ public class ParentHolder extends GroupViewHolder {
         Log.i("Adapter", "collapse");
         parent_dish_name.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.expanda_rrow, 0);
         parent_dish_name.setTextColor(Color.BLACK);
+
+
     }
 
 

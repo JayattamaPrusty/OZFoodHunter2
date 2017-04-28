@@ -2,6 +2,8 @@ package com.wma.ozfoodhunter.apimodule;
 
 
 import com.google.gson.JsonObject;
+import com.wma.ozfoodhunter.BeanClasses.Changepassword;
+import com.wma.ozfoodhunter.BeanClasses.Feedbackmodel;
 import com.wma.ozfoodhunter.BeanClasses.Forgot_Model;
 import com.wma.ozfoodhunter.BeanClasses.Login_Model;
 import com.wma.ozfoodhunter.BeanClasses.PostCode_Model;
@@ -35,7 +37,7 @@ public interface Apimethods {
     @POST("OZF/mobile/signup")
     Call<Sign_Up_Model> setSignup(@Field("firstname") String firstname, @Field("lastname") String lastname,
                                   @Field("email") String email, @Field("password") String password,
-                                  @Field("mobile") String phone);
+                                  @Field("mobile") String phone,@Field("deviceid") String deviceid);
 
     @FormUrlEncoded
     @POST("OZF/mobile/login")
@@ -50,10 +52,26 @@ public interface Apimethods {
 
     @FormUrlEncoded
     @POST("OZF/mobile/locationrestaurant")
-    Call<List<Restaurant_model>> setRestaurant(@Field("lat") String latitude, @Field("lang") String longitude, @Field("userid") String userid);
+    Call<List<Restaurant_model>> setRestaurant(@Field("lat") String latitude, @Field("lang") String longitude,@Field("schedule") int schedule,@Field("page") int page);
+
+    @FormUrlEncoded
+    @POST("OZF/mobile/locationrestaurant")
+    Call<List<Restaurant_model>> setRestaurantsearch(@Field("location") String location,@Field("schedule") int schedule,@Field("page") int page);
 
     @FormUrlEncoded
     @POST("OZF/mobile/restaurantdish")
     Call<Restaurant_Dish_Model> setRes_dish(@Field("restid") String restid);
+
+    @FormUrlEncoded
+    @POST("OZF/mobile/changepass")
+    Call<Changepassword> setpassword(@Field("userid") String userid, @Field("current_pass") String currentpass, @Field("password") String password);
+
+     @FormUrlEncoded
+    @POST("OZF/mobile/addfeedback")
+    Call<Feedbackmodel> setfeedback(@Field("name") String name, @Field("email") String email, @Field("comment") String comment);
+
+  /*  @FormUrlEncoded
+    @POST("OZF/mobile/booktable")
+    Call<Feedbackmodel> setfeedback(@Field("name") String name, @Field("email") String email, @Field("comment") String comment);*/
 
 }

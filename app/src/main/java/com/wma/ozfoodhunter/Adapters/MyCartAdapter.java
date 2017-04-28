@@ -34,28 +34,54 @@ public class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.ViewHolder
     }
 
     @Override
-    public void onBindViewHolder(MyCartAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(final MyCartAdapter.ViewHolder holder, int position) {
         final String c = Constants.names[position];
         holder.itemname.setText(c);
         holder.delete.setVisibility(View.VISIBLE);
         holder.sub.setVisibility(View.VISIBLE);
         holder.add.setVisibility(View.VISIBLE);
+        String price =holder.price.getText().toString();
+        price=price.replace("$","");
+        float priceint=Float.parseFloat(price);
+        String quantity=holder.qty.getText().toString();
+        //   quantity=quantity.substring(3);
+        quantity=quantity.replace("x ","");
+        int intCount= Integer.parseInt(quantity);
+        float totalprice=priceint*intCount;
+
+
 
         holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
 
             }
         });
         holder.add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String quantity=holder.qty.getText().toString();
+             //   quantity=quantity.substring(3);
+               quantity=quantity.replace("x ","");
+                int intCount= Integer.parseInt(quantity);
+                intCount++;
+                holder.qty.setText("x "+intCount);
 
             }
         });
         holder.sub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                String quantity=holder.qty.getText().toString();
+                //   quantity=quantity.substring(3);
+                quantity=quantity.replace("x ","");
+                int intCount= Integer.parseInt(quantity);
+                if(intCount>1){
+                    intCount--;
+                    holder.qty.setText("x "+intCount);
+                }
 
             }
         });

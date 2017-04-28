@@ -3,10 +3,10 @@
 
 
     <translate
-        android:fromYDelta="75%p"
+        android:fromYDelta="100%p"
         android:toYDelta="0%p"
         android:fillAfter="true"
-        android:duration="1000"/>
+        android:duration="1500"/>
 
     <!--<alpha-->
         <!--android:duration="2000"-->

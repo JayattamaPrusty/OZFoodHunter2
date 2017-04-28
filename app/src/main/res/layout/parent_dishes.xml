@@ -4,11 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:id="@+id/relativelayparent"
     >
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/grey"/>
+
 
     <com.wma.ozfoodhunter.fonts.TextView_Regular
 
@@ -26,7 +24,7 @@
     <View
         android:layout_below="@+id/parent_dish_name"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height=".5dp"
         android:background="@color/grey"/>
 
 </RelativeLayout>
