@@ -119,7 +119,6 @@ public class Home extends Fragment implements View.OnClickListener{
         adapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_dropdown_item_1line,Commons.postcode);
         search.setAdapter(adapter);
 
-
         search.addTextChangedListener(new TextWatcher() {
             @Override
             public void onTextChanged(CharSequence cs, int arg1, int arg2, int arg3) {
@@ -294,11 +293,9 @@ public class Home extends Fragment implements View.OnClickListener{
             public void onResponse(Call<List<Restaurant_model>> call,
                                    retrofit2.Response<List<Restaurant_model>> response)
             {
-          //      restaurantModelList.addAll(response.body());
-                restaurantModelList=response.body();
-                ra = new Restaurant_Adapter(getActivity(),restaurantModelList,flagbtn);
-                recyclerView.setNestedScrollingEnabled(false);
-                recyclerView.setAdapter(ra);
+               restaurantModelList.addAll(response.body());
+          //      restaurantModelList=response.body();
+
                 ra.notifyDataSetChanged();
 
             }
@@ -325,7 +322,7 @@ public class Home extends Fragment implements View.OnClickListener{
             int visibleItemCount = lm.getChildCount();
             int totalItemCount = lm.getItemCount();
             int firstVisibleItemPosition = lm.findFirstVisibleItemPosition();
-            if ((visibleItemCount + firstVisibleItemPosition) >= totalItemCount
+            if ((visibleItemCount + firstVisibleItemPosition) >= totalItemCount-3
                         && firstVisibleItemPosition >= 0
                         && totalItemCount >= PAGE_SIZE) {
                     page++;

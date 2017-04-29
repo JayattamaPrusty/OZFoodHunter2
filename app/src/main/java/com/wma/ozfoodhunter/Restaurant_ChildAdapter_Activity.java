@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.wma.ozfoodhunter.Adapters.RestaurantPriceAdapter;
 import com.wma.ozfoodhunter.Adapters.RestaurantSectionAdapter;
@@ -26,6 +27,7 @@ public class Restaurant_ChildAdapter_Activity extends AppCompatActivity implemen
     private ArrayList<Extrasdetail> extrasdetailArrayList;
     private ArrayList<StPrice> stPriceArrayList;
     Button continue_btn;
+    TextView textView_dishname;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +40,7 @@ public class Restaurant_ChildAdapter_Activity extends AppCompatActivity implemen
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         continue_btn=(Button)findViewById(R.id.continue_btn);
+        textView_dishname=(TextView) findViewById(R.id.dishname);
         continue_btn.setOnClickListener(this);
         extrasdetailArrayList= (ArrayList<Extrasdetail>) getIntent().getSerializableExtra("extrasdetaillist");
         stPriceArrayList= (ArrayList<StPrice>) getIntent().getSerializableExtra("pricelist");

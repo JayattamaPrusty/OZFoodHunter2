@@ -49,14 +49,16 @@ public class RestaurantDetailsAdapter extends ExpandableRecyclerViewAdapter<Pare
     ExpandCollapseController expandCollapseController;
     protected ExpandableList expandableList;
     View view;
+    String rid;
     Localdb localdb;
     ArrayList<Dishdetail>dishdetails_iteam=new ArrayList<>();
 
 
 
-    public RestaurantDetailsAdapter(List<? extends ExpandableGroup> groups, Context ctx) {
+    public RestaurantDetailsAdapter(List<? extends ExpandableGroup> groups, Context ctx,String rid) {
         super(groups);
         this.ctx = ctx;
+        this.rid = rid;
         this.expandableList = new ExpandableList(groups);
         this.expandCollapseController = new ExpandCollapseController(expandableList, this);
     }
@@ -118,8 +120,10 @@ public class RestaurantDetailsAdapter extends ExpandableRecyclerViewAdapter<Pare
                 public void onClick(View v) {
 
                     int qty=0;
-                    if(
-                        dishdetail.getExtrasdetail().size()>0 || dishdetail.getStPrice().size()>1){
+                    if(dishdetail.getExtrasdetail().size()>0 || dishdetail.getStPrice().size()>1){
+                        qty++;
+                        localdb.insertCategory(qty,rid,dishdetail.getInDishId(),dishdetail.getStDishName(),"",dishdetail.getStPrice().get(0).getPriceItem(),dishdetail.getStPrice().get(0).getMenuPrice(),"","0");
+
                         Intent intent=new Intent(ctx,Restaurant_ChildAdapter_Activity.class);
                         intent.putExtra("extrasdetaillist", (Serializable) dishdetail.getExtrasdetail());
                         intent.putExtra("pricelist", (Serializable) dishdetail.getStPrice());
@@ -128,7 +132,7 @@ public class RestaurantDetailsAdapter extends ExpandableRecyclerViewAdapter<Pare
                     }
                     else {
                         qty++;
-                        localdb.insertCategory(" "," ",qty);
+                        localdb.insertCategory(qty,rid,dishdetail.getInDishId(),dishdetail.getStDishName(),"",dishdetail.getStPrice().get(0).getPriceItem(),dishdetail.getStPrice().get(0).getMenuPrice(),dishdetail.getStPrice().get(0).getMenuPrice(),"0");
                         AllValidation.myToast(ctx,"dish is successfully added to cart ");
                     }
 

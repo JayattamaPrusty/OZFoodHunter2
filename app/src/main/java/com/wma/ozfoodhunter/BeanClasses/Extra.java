@@ -9,6 +9,7 @@ public class Extra implements Serializable {
     private String id;
     private String attribute_name;
     private String attribute_price;
+    private String isChecked;
 
     public String getId() {
         return id;
@@ -34,4 +35,11 @@ public class Extra implements Serializable {
         this.attribute_price = attributePrice;
     }
 
+    public String getIsChecked() {
+        return isChecked;
+    }
+
+    public void setIsChecked(String isChecked) {
+        this.isChecked = isChecked;
+    }
 }

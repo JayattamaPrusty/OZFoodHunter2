@@ -74,7 +74,7 @@ public class PriceRecycleAdapter extends RecyclerView.Adapter<PriceRecycleAdapte
                 }
                 else {
                     qty++;
-                    localdb.insertCategory(" "," ",qty);
+//                    localdb.insertCategory(" "," ",qty);
                     AllValidation.myToast(context,"dish is successfully added to cart ");
                 }
 

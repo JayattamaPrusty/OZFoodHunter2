@@ -10,6 +10,7 @@ import com.wma.ozfoodhunter.BeanClasses.PostCode_Model;
 import com.wma.ozfoodhunter.BeanClasses.Restaurant_Dish_Model;
 import com.wma.ozfoodhunter.BeanClasses.Restaurant_model;
 import com.wma.ozfoodhunter.BeanClasses.Sign_Up_Model;
+import com.wma.ozfoodhunter.fonts.Bookmodel;
 
 import java.util.List;
 
@@ -70,8 +71,8 @@ public interface Apimethods {
     @POST("OZF/mobile/addfeedback")
     Call<Feedbackmodel> setfeedback(@Field("name") String name, @Field("email") String email, @Field("comment") String comment);
 
-  /*  @FormUrlEncoded
+    @FormUrlEncoded
     @POST("OZF/mobile/booktable")
-    Call<Feedbackmodel> setfeedback(@Field("name") String name, @Field("email") String email, @Field("comment") String comment);*/
+    Call<Bookmodel> setBook(@Field("restaurant_id") String res_id,@Field("name") String name,@Field("mobile") String mobile,@Field("no_of_guests") String guests,@Field("email") String email, @Field("spe_request") String spe_request, @Field("booking_date") String bookdate,@Field("dt_ordered_date") String dt_ordered_date);
 
 }

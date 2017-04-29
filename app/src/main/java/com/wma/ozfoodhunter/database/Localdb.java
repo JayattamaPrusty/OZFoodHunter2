@@ -7,6 +7,11 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.wma.ozfoodhunter.BeanClasses.Cart_Model;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Jayattama Prusty on 12-Apr-17.
  */
@@ -29,6 +34,7 @@ public class Localdb extends SQLiteOpenHelper {
     private String totalprice="totalprice";
     private String opentime="opentime";
     private String closetime="closetime";
+    private String preference="is_preference";
 
     private String Table_Preference="Preference";
     private String preference_id="preferenceid";
@@ -61,7 +67,7 @@ public class Localdb extends SQLiteOpenHelper {
                 + restaurant_id + " TEXT,"
                 + dish_id + " TEXT," + dish_name + " TEXT,"
                 +dish_variety_name+" TEXT,"+dish_variety_price+" TEXT,"+delivery_type+" TEXT,"+quantity
-                + " TEXT,"+totalprice+"TEXT,"+opentime+"TEXT,"+closetime+"TEXT)";
+                + " TEXT,"+totalprice+" TEXT,"+opentime+" TEXT,"+closetime+" TEXT,"+preference+" TEXT)";
         sqLiteDatabase.execSQL(CREATE_DISH);
 
         String CREATE_PREFERENCE= "CREATE TABLE " + Table_Preference + "("
@@ -100,17 +106,50 @@ public class Localdb extends SQLiteOpenHelper {
         db.execSQL("delete from " + CategoryTable + " WHERE " + DataType + "='" + type + "'");
     }
 
-    public void insertCategory(String res,String type,int type1) {
+    public void insertCategory(int qty,String rid,String di,String dn,String dt,String dvn,String pr,String tp,String pre) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-//        cv.put(Fieldresponse, res);
-//        cv.put(DataType, type);
-//        db.insert(CategoryTable, null, cv);
-//        db.close();
-        cv.put(quantity,type1);
+        cv.put(quantity,qty);
+        cv.put(restaurant_id,rid);
+        cv.put(dish_id,di);
+        cv.put(dish_name,dn);
+        cv.put(delivery_type,dt);
+        cv.put(dish_variety_name,dvn);
+        cv.put(dish_variety_price,pr);
+        cv.put(totalprice,tp);
+        cv.put(preference,pre);
         Long k=db.insert(Table_Dish, null, cv);
-        Log.d("insert:","one row created");
+        Log.d("insert:",""+k);
         db.close();
 
     }
+
+    public List<Cart_Model.Cart_Details> getCart_Details(){
+        List<Cart_Model.Cart_Details> cd = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "select * from "+Table_Dish;
+        Cursor cursor = db.rawQuery(query, null);
+        while (cursor.moveToNext()) {
+            Cart_Model.Cart_Details d =  new Cart_Model().new Cart_Details();
+            d.setId(cursor.getString(0));
+            d.setIn_restaurant_id(cursor.getString(1));
+            d.setIn_dish_id(cursor.getString(2));
+            d.setSt_dish_name(cursor.getString(3));
+            d.setPrice_item(cursor.getString(4));
+            d.setMenu_price(cursor.getString(5));
+            d.setQuantity(cursor.getString(7));;
+            d.setIs_preference(cursor.getString(11));
+            cd.add(d);
+        }
+        return cd;
+    }
+
+
+    public void updateCart(int qty,String iid) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "update "+Table_Dish+" set "+quantity+"="+qty+" where "+id +"="+iid ;
+        Cursor cursor = db.rawQuery(query, null);
+    }
+
+
 }

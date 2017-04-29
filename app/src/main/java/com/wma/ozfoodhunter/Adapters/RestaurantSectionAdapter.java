@@ -73,7 +73,7 @@ public class RestaurantSectionAdapter extends SectionedRecyclerViewAdapter<Recyc
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int section, final int relativePosition, int absolutePosition) {
 
-        ItemViewHolder itemViewHolder = (ItemViewHolder) holder;
+        final ItemViewHolder itemViewHolder = (ItemViewHolder) holder;
         //       String c= Constants.cuisines[relativePosition];
         String flag_mandatory = itemlist.get(section).getFlgMandatory();
         if (flag_mandatory.equalsIgnoreCase("1"))
@@ -84,19 +84,26 @@ public class RestaurantSectionAdapter extends SectionedRecyclerViewAdapter<Recyc
             itemViewHolder.radioButton.setText(itemlist.get(section).getExtras().get(relativePosition).getAttributeName());
             itemViewHolder.priceradio.setText( itemlist.get(section).getExtras().get(relativePosition).getAttributePrice());
 
-           itemViewHolder.radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+           itemViewHolder.radioButton.setOnClickListener(new View.OnClickListener() {
                @Override
-               public void onCheckedChanged(RadioGroup group, int radio) {
+               public void onClick(View v) {
 
-                   RadioButton checked_rb = (RadioButton) group.findViewById(radio);
-                   if (lastCheckedRB != null) {
-                       lastCheckedRB.setChecked(false);
+                   itemlist.get(section).getExtras().get(relativePosition).setIsChecked("1");
+                   for(int i=0;i<itemlist.get(section).getExtras().size();i++)
+                   {
+                       if(i!=relativePosition){
+                        itemlist.get(section).getExtras().get(relativePosition).setIsChecked("0");
+                       }
+                       if(itemlist.get(section).getExtras().get(i).getIsChecked()=="1"){
+                           itemViewHolder.radioButton.setChecked(true);
+                       }else {
+                           itemViewHolder.radioButton.setChecked(false);
+                       }
+
                    }
-                   //store the clicked radiobutton
-                   lastCheckedRB = checked_rb;
-
                }
            });
+
 
         } else
         {    itemViewHolder.radiobtnlay.setVisibility(View.GONE);
@@ -105,6 +112,11 @@ public class RestaurantSectionAdapter extends SectionedRecyclerViewAdapter<Recyc
             itemViewHolder.price.setText( itemlist.get(section).getExtras().get(relativePosition).getAttributePrice());
         }
 
+//        if(itemlist.get(section).getExtras().get(relativePosition).getIsChecked()=="1"){
+//            itemViewHolder.radioButton.setChecked(true);
+//        }else {
+//            itemViewHolder.radioButton.setChecked(false);
+//        }
     }
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -125,7 +137,6 @@ public class RestaurantSectionAdapter extends SectionedRecyclerViewAdapter<Recyc
        CheckBox itemchild;
        RadioButton radioButton;
        LinearLayout checkboxlay,radiobtnlay;
-       RadioGroup radioGroup;
 
         public ItemViewHolder(View itemView) {
             super(itemView);
@@ -135,7 +146,6 @@ public class RestaurantSectionAdapter extends SectionedRecyclerViewAdapter<Recyc
             itemchild=(CheckBox) itemView.findViewById(R.id.check);
             price=(TextView)itemView.findViewById(R.id.price);
             radioButton=(RadioButton)itemView.findViewById(R.id.radio);
-            radioGroup=(RadioGroup) itemView.findViewById(R.id.radiogrp);
             priceradio=(TextView)itemView.findViewById(R.id.price1);
         }
     }

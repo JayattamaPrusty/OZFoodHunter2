@@ -24,6 +24,7 @@ import com.bumptech.glide.Glide;
 import com.wma.ozfoodhunter.BeanClasses.Restaurant_model;
 import com.wma.ozfoodhunter.BeanClasses.StDinnerTime;
 import com.wma.ozfoodhunter.BeanClasses.StLunchTime;
+import com.wma.ozfoodhunter.BookTable;
 import com.wma.ozfoodhunter.MyCart;
 import com.wma.ozfoodhunter.Offers;
 import com.wma.ozfoodhunter.R;
@@ -147,7 +148,7 @@ public class Restaurant_Adapter extends RecyclerView.Adapter<Restaurant_Adapter.
         holder.restaurant_name.setText(restaurant_model.getStRestaurantName());
         holder.location_add.setText(restaurant_model.getStStreetAddress()+","+restaurant_model.getStSuburb());
         if(flagbtn==1)
-        {  if((restaurant_model.getDeliverySchedule().getDel_start_time_lunch() == null) && restaurant_model.getDeliverySchedule().getDel_close_time_lunch() == null)
+        {  if((restaurant_model.getDeliverySchedule().getDel_start_time_lunch() == null) || restaurant_model.getDeliverySchedule().getDel_start_time_dinner() == null)
             {
                 holder.delivery.setText("Del :"+" " );
             }else
@@ -166,7 +167,7 @@ public class Restaurant_Adapter extends RecyclerView.Adapter<Restaurant_Adapter.
             holder.delivery.setText(" ");
             holder.min_delivery.setText("Min delivery :" + " Any ");
 
-            if((restaurant_model.getPickupSchedule().getPick_start_time_lunch() == null) && restaurant_model.getPickupSchedule().getPick_close_time_lunch() == null)
+            if((restaurant_model.getPickupSchedule().getPick_start_time_lunch() == null) || restaurant_model.getPickupSchedule().getPick_start_time_dinner() == null)
             {
                 holder.pick.setText("Pick :"+" " );
             }else
@@ -178,13 +179,25 @@ public class Restaurant_Adapter extends RecyclerView.Adapter<Restaurant_Adapter.
 
             holder.delivery_fee.setText(" Free delivery ");
         }
-        if(restaurant_model.getAgree_table_booking().equalsIgnoreCase("0")){
+        if(restaurant_model.getAgree_table_booking().equalsIgnoreCase("1")){
 
             holder.booktable.setVisibility(View.GONE);
 
         }else{
             holder.booktable.setVisibility(View.VISIBLE);
         }
+        holder.booktable.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(ctx, BookTable.class);
+                intent.putExtra("res_id",restaurant_model.getInRestaurantId());
+                intent.putExtra("res_img",restaurant_model.getImage());
+                intent.putExtra("res_name",restaurant_model.getStRestaurantName());
+                intent.putExtra("rest_street_details",restaurant_model.getStStreetAddress()+","+restaurant_model.getStSuburb()+","+restaurant_model.getStPostcode());
+                intent.putExtra("rest_close_open_rest_venue_cuisine",restaurant_model.getClose_open_st()+","+restaurant_model.getStVenueCuisine());
+                ctx.startActivity(intent);
+            }
+        });
 
         final float ratingfloat=(float)restaurant_model.getReview().getRating();
         holder.ratingBar.setRating(ratingfloat);
@@ -225,6 +238,8 @@ public class Restaurant_Adapter extends RecyclerView.Adapter<Restaurant_Adapter.
                 in.putExtra("res_venue_cuisine",restaurant_model.getStVenueCuisine());
                 in.putExtra("res_min_order",restaurant_model.getStMinOrder());
                 in.putExtra("res_delivery_fee",restaurant_model.getStDeliveryCharge());
+                in.putExtra("rest_street_details",restaurant_model.getStStreetAddress()+","+restaurant_model.getStSuburb()+","+restaurant_model.getStPostcode());
+                in.putExtra("rest_close_open_rest_venue_cuisine",restaurant_model.getClose_open_st()+","+restaurant_model.getStVenueCuisine());
                 ctx.startActivity(in);
             }
         });

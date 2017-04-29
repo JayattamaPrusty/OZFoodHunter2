@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
     <android.support.v4.widget.NestedScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/activity_restarant_details"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight=".9"
-        android:descendantFocusability="blocksDescendants"
+        android:layout_height="match_parent"
         tools:context="com.wma.ozfoodhunter.RestarantDetails"
         >
 
 <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="vertical">
             <LinearLayout
                 xmlns:android="http://schemas.android.com/apk/res/android"
@@ -33,7 +33,7 @@
                     <ImageView
                         android:id="@+id/img"
                         android:scaleType="fitXY"
-                        android:src="@drawable/food_pic1"
+                        android:src="@drawable/logo_placeholder"
                         android:layout_width="match_parent"
                         android:layout_height="80dp" />
 
@@ -53,13 +53,14 @@
                         android:text="Burger Edge- Myer Center"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
+
                     <com.wma.ozfoodhunter.fonts.TextView_Regular
                         android:layout_marginTop="8dp"
                         android:textSize="14sp"
                         android:layout_below="@id/restaurant_name"
-                        android:id="@+id/venue_cuisine"
+                        android:id="@+id/streetadd"
                         android:text="Burger"
-                        android:textColor="@color/black"
+                        android:textColor="@color/light_gray"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
@@ -68,10 +69,10 @@
                     <com.wma.ozfoodhunter.fonts.TextView_Regular
                         android:layout_marginTop="8dp"
                         android:textSize="12sp"
-                        android:layout_below="@id/venue_cuisine"
+                        android:layout_below="@id/streetadd"
                         android:id="@+id/venue_cuisine1"
                         android:text="Burger"
-                        android:textColor="@color/black"
+                        android:textColor="@color/light_gray"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
@@ -79,17 +80,28 @@
                         android:layout_alignParentStart="true" />
                 </RelativeLayout>
             </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height=".5dp"
+        android:background="@color/grey"/>
+
     <com.wma.ozfoodhunter.fonts.TextView_Regular
+        android:paddingLeft="7dp"
         android:layout_marginTop="8dp"
-        android:textSize="16sp"
+        android:textSize="18sp"
         android:id="@+id/bookingdetail"
         android:text="Booking Details"
-        android:textColor="@color/black"
+        android:textColor="#514f4f"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+    <View
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height=".5dp"
+        android:background="@color/grey"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -100,12 +112,36 @@
         <com.wma.ozfoodhunter.fonts.TextView_Regular
             android:layout_marginTop="8dp"
             android:textSize="16sp"
-            android:id="@+id/calender"
-            android:text="Select date"
+            android:id="@+id/space1"
+            android:text=""
             android:textColor="@color/black"
             android:layout_width="0dp"
-            android:layout_weight=".5"
-            android:drawableRight="@drawable/cal2"
+            android:layout_weight=".2"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+        <com.wma.ozfoodhunter.fonts.TextView_Regular
+            android:layout_marginTop="8dp"
+            android:textSize="16sp"
+            android:id="@+id/calender"
+            android:text="Select date"
+            android:textColor="#514f4f"
+            android:layout_width="0dp"
+            android:layout_weight=".3"
+            android:drawableRight="@drawable/bookcal"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+        <com.wma.ozfoodhunter.fonts.TextView_Regular
+            android:layout_marginTop="8dp"
+            android:textSize="16sp"
+            android:id="@+id/space2"
+            android:text=""
+            android:textColor="@color/black"
+            android:layout_width="0dp"
+            android:layout_weight=".1"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_alignParentLeft="true"
@@ -115,16 +151,162 @@
             android:textSize="16sp"
             android:id="@+id/time"
             android:text="Select time"
+            android:textColor="#514f4f"
+            android:layout_width="0dp"
+            android:layout_weight=".3"
+            android:drawableRight="@drawable/clock_icon"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+        <com.wma.ozfoodhunter.fonts.TextView_Regular
+            android:layout_marginTop="8dp"
+            android:textSize="16sp"
+            android:id="@+id/space3"
+            android:text=""
             android:textColor="@color/black"
             android:layout_width="0dp"
-            android:layout_weight=".5"
-            android:drawableRight="@drawable/cal2"
+            android:layout_weight=".1"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height=".5dp"
+        android:background="@color/grey"/>
+
+    <com.wma.ozfoodhunter.fonts.TextView_Regular
+        android:paddingLeft="7dp"
+        android:layout_marginTop="8dp"
+        android:textSize="16sp"
+        android:id="@+id/guestdetail"
+        android:text="Guest Details"
+        android:textColor="#514f4f"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+    <View
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height=".5dp"
+        android:background="@color/grey"/>
+
+    <EditText
+        android:padding="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:id="@+id/yourname"
+        android:layout_weight="1"
+        android:background="@drawable/rectangle_edge_gray"
+        android:layout_margin="7dp"
+        android:textColor="@color/grey"
+        android:hint="Your Name"
+        android:singleLine="true"
+        android:textStyle="italic"/>
+    <EditText
+        android:padding="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:id="@+id/emailadd"
+        android:layout_weight="1"
+        android:background="@drawable/rectangle_edge_gray"
+        android:layout_margin="7dp"
+        android:textColor="@color/grey"
+        android:hint="Email address"
+        android:singleLine="true"
+        android:textStyle="italic"/>
+    <EditText
+        android:padding="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:id="@+id/phone"
+        android:layout_weight="1"
+        android:background="@drawable/rectangle_edge_gray"
+        android:layout_margin="7dp"
+        android:textColor="@color/grey"
+        android:hint="1234567890"
+        android:singleLine="true"
+        android:textStyle="italic"/>
+    <EditText
+        android:padding="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:id="@+id/no_of_person"
+        android:layout_weight="1"
+        android:background="@drawable/rectangle_edge_gray"
+        android:layout_margin="7dp"
+        android:textColor="@color/grey"
+        android:hint="number of person"
+        android:singleLine="true"
+        android:textStyle="italic"/>
+    <EditText
+        android:padding="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:inputType="text"
+        android:id="@+id/comment"
+        android:layout_weight="1"
+        android:background="@drawable/rectangle_edge_gray"
+        android:layout_margin="7dp"
+        android:textColor="@color/grey"
+        android:gravity="top|start"
+        android:hint="Comment"
+        android:singleLine="false"
+        android:textStyle="italic"/>
+
+    <LinearLayout
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:gravity="center"
+        >
+        <com.wma.ozfoodhunter.fonts.BT_Regular
+            android:id="@+id/submit_bktbl"
+            android:text="submit"
+            android:textAllCaps="true"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:layout_weight=".4"
+            android:layout_width="0dp"
+            android:background="@drawable/rectangle_edge"
+            android:layout_height="30dp" />
+
+        <com.wma.ozfoodhunter.fonts.TextView_Regular
+            android:layout_weight=".05"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+
+        <com.wma.ozfoodhunter.fonts.BT_Regular
+            android:id="@+id/cancel_bktbl"
+            android:text="Cancel"
+            android:textAllCaps="true"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:layout_weight=".4"
+            android:layout_width="0dp"
+            android:background="@drawable/rectangle_edge"
+            android:layout_height="30dp" />
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="18dp"
+        android:text=""/>
+
 </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 

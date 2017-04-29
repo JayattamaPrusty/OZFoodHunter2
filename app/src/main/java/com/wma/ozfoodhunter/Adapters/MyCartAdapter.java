@@ -8,8 +8,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.wma.ozfoodhunter.BeanClasses.Cart_Model;
 import com.wma.ozfoodhunter.R;
 import com.wma.ozfoodhunter.Widgets.Constants;
+
+import java.util.List;
 
 /**
  * Created by Jayattama Prusty on 23-Mar-17.
@@ -18,10 +21,11 @@ import com.wma.ozfoodhunter.Widgets.Constants;
 public class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.ViewHolder> {
 
    Context context;
+    List<Cart_Model.Cart_Details> cart_detailsList;
 
-
-    public MyCartAdapter(Context context) {
+    public MyCartAdapter(Context context, List<Cart_Model.Cart_Details> cart_detailsList) {
         this.context = context;
+        this.cart_detailsList = cart_detailsList;
     }
 
     @Override
@@ -34,21 +38,23 @@ public class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.ViewHolder
     }
 
     @Override
-    public void onBindViewHolder(final MyCartAdapter.ViewHolder holder, int position) {
-        final String c = Constants.names[position];
-        holder.itemname.setText(c);
+    public void onBindViewHolder(final MyCartAdapter.ViewHolder holder, final int position) {
+
+        holder.itemname.setText(cart_detailsList.get(position).getSt_dish_name());
+        String qnty_no=cart_detailsList.get(position).getQuantity();
+        holder.qty.setText("x "+qnty_no);
+        String priceamount=cart_detailsList.get(position).getMenu_price();
+        holder.price.setText("$ "+priceamount);
         holder.delete.setVisibility(View.VISIBLE);
         holder.sub.setVisibility(View.VISIBLE);
         holder.add.setVisibility(View.VISIBLE);
-        String price =holder.price.getText().toString();
-        price=price.replace("$","");
-        float priceint=Float.parseFloat(price);
-        String quantity=holder.qty.getText().toString();
-        //   quantity=quantity.substring(3);
-        quantity=quantity.replace("x ","");
-        int intCount= Integer.parseInt(quantity);
-        float totalprice=priceint*intCount;
 
+        int intCount= Integer.parseInt(qnty_no);
+        float priceint=Float.parseFloat(priceamount);
+
+
+
+        holder.sub.setVisibility(View.INVISIBLE);
 
 
         holder.delete.setOnClickListener(new View.OnClickListener() {
@@ -63,10 +69,14 @@ public class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.ViewHolder
             public void onClick(View v) {
                 String quantity=holder.qty.getText().toString();
              //   quantity=quantity.substring(3);
-               quantity=quantity.replace("x ","");
+                holder.sub.setVisibility(View.VISIBLE);
+                quantity=quantity.replace("x ","");
                 int intCount= Integer.parseInt(quantity);
                 intCount++;
                 holder.qty.setText("x "+intCount);
+                float pricefloat=Float.parseFloat(cart_detailsList.get(position).getMenu_price());
+                float totalprice=pricefloat*intCount;
+                holder.price.setText("$ "+totalprice);
 
             }
         });
@@ -79,10 +89,16 @@ public class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.ViewHolder
                 quantity=quantity.replace("x ","");
                 int intCount= Integer.parseInt(quantity);
                 if(intCount>1){
+                    holder.sub.setVisibility(View.VISIBLE);
                     intCount--;
                     holder.qty.setText("x "+intCount);
+                    float pricefloat=Float.parseFloat(cart_detailsList.get(position).getMenu_price());
+                    float totalprice=pricefloat*intCount;
+                    holder.price.setText("$ "+totalprice);
+                    if (intCount==1){
+                        holder.sub.setVisibility(View.INVISIBLE);
+                    }
                 }
-
             }
         });
 
@@ -91,7 +107,7 @@ public class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.ViewHolder
 
     @Override
     public int getItemCount() {
-        return 4;
+        return cart_detailsList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

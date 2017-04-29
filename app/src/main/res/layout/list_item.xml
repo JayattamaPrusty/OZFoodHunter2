@@ -45,11 +45,6 @@
     android:weightSum="1"
     >
 
-    <RadioGroup
-            android:id="@+id/radiogrp"
-           android:layout_weight=".7"
-           android:layout_width="0dp"
-           android:layout_height="wrap_content">
         <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -58,7 +53,6 @@
         android:checked="false"
         android:id="@+id/radio"
         android:buttonTint="#71dbe9"/>
-    </RadioGroup>
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"

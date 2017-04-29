@@ -16,9 +16,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.wma.ozfoodhunter.Adapters.MyCartAdapter;
+import com.wma.ozfoodhunter.BeanClasses.Cart_Model;
 import com.wma.ozfoodhunter.MyCart;
 import com.wma.ozfoodhunter.R;
 import com.wma.ozfoodhunter.Widgets.DividerItemDecoration;
+import com.wma.ozfoodhunter.database.Localdb;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Mycart_default extends Fragment {
     View root;
@@ -30,6 +35,8 @@ public class Mycart_default extends Fragment {
     int type=0;
     MyCart mc;
     TextView additem;
+    Localdb db;
+    List<Cart_Model.Cart_Details> cd = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -37,6 +44,8 @@ public class Mycart_default extends Fragment {
 
         // Inflate the layout for this fragment
         mc = (MyCart) getActivity();
+        db = new Localdb(mc);
+        cd = db.getCart_Details();
         root= inflater.inflate(R.layout.fragment_mycart_default, container, false);
         edit=(TextView)root.findViewById(R.id.edit);
         edit.setVisibility(View.GONE);
@@ -47,7 +56,7 @@ public class Mycart_default extends Fragment {
         recyclerView.setLayoutManager(lm);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.addItemDecoration(new DividerItemDecoration(getActivity()));
-        myCartAdapter = new MyCartAdapter(getActivity());
+        myCartAdapter = new MyCartAdapter(getActivity(),cd);
         recyclerView.setAdapter(myCartAdapter);
         addcart.setOnClickListener(new View.OnClickListener() {
             @Override

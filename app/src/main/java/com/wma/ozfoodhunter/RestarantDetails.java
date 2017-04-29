@@ -45,7 +45,7 @@ public class RestarantDetails extends AppCompatActivity implements View.OnClickL
     Toolbar toolbar;
     ActionBar actionbar;
     ImageView img;
-    TextView res_name,res_cuisine_name;
+    TextView res_nametxt,res_cuisine_name;
     RecyclerView recyclerView;
     private RestaurantDetailsAdapter adapter;
     private ExpandableGroup expandedGroup=null;
@@ -57,7 +57,7 @@ public class RestarantDetails extends AppCompatActivity implements View.OnClickL
     int a=0;
     int b=0;
     int c=0;
-    String name,image,cuisine_name,res_id,min_order,delivery_fee;
+    String name,image,cuisine_name,res_id,min_order,delivery_fee,rest_street,rest_open_close_cuisine;;
     Restaurant_Dish_Model restmodel;
     ProgressDialog mProgressDialog;
 
@@ -72,17 +72,19 @@ public class RestarantDetails extends AppCompatActivity implements View.OnClickL
         actionbar.setHomeAsUpIndicator(R.drawable.ic_back);
         actionbar.setDisplayHomeAsUpEnabled(true);
         img=(ImageView)findViewById(R.id.img);
-        res_name=(TextView) findViewById(R.id.restaurant_name);
+        res_nametxt=(TextView) findViewById(R.id.restaurant_name);
         res_cuisine_name=(TextView) findViewById(R.id.venue_cuisine);
         name=getIntent().getStringExtra("res_name");
         image=getIntent().getStringExtra("res_image");
+        rest_street=getIntent().getStringExtra("rest_street_details");
+        rest_open_close_cuisine=getIntent().getStringExtra("rest_close_open_rest_venue_cuisine");
         min_order=getIntent().getStringExtra("res_min_order");
         delivery_fee=getIntent().getStringExtra("res_delivery_fee");
         cuisine_name=getIntent().getStringExtra("res_venue_cuisine");
         res_id=getIntent().getStringExtra("res_id");
         restapicall();
         Glide.with(this).load(image).into(img);
-        res_name.setText(name);
+        res_nametxt.setText(name);
         res_cuisine_name.setText(cuisine_name);
         items=(Button)findViewById(R.id.items);
         viewcart=(Button)findViewById(R.id.viewcart);
@@ -154,7 +156,7 @@ public class RestarantDetails extends AppCompatActivity implements View.OnClickL
                     Log.d("Response",""+statusCode);
                     Log.d("response",""+response);
                     setData();
-                    adapter = new RestaurantDetailsAdapter(parentDishArrayList,RestarantDetails.this);
+                    adapter = new RestaurantDetailsAdapter(parentDishArrayList,RestarantDetails.this,res_id);
                     recyclerView.setAdapter(adapter);
                     loaderDiloag.dismissDiloag();
                     /*if (mProgressDialog.isShowing())
@@ -265,7 +267,14 @@ public class RestarantDetails extends AppCompatActivity implements View.OnClickL
                 if(c%2 == 1){
                     book_table.setBackgroundResource(R.drawable.rectangle_edge);
                     book_table.setTextColor(getResources().getColor(R.color.white));
-                    startActivity(new Intent(RestarantDetails.this,BookTable.class));
+                    Intent intent=new Intent(RestarantDetails.this,BookTable.class);
+                    intent.putExtra("res_id",res_id);
+                    intent.putExtra("res_name",name);
+                    intent.putExtra("res_img",image);
+                    intent.putExtra("rest_street_details",rest_street);
+                    intent.putExtra("rest_close_open_rest_venue_cuisine",rest_open_close_cuisine);
+                    startActivity(intent);
+
                 }else{
                     book_table.setBackgroundResource(R.drawable.rectangle_white);
                     book_table.setTextColor(getResources().getColor(R.color.black));
